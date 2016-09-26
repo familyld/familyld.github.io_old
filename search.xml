@@ -15,6 +15,8 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<h3 id="Test-MathJAX"><a href="#Test-MathJAX" class="headerlink" title="Test MathJAX"></a>Test MathJAX</h3><p>$$a = \frac{1}{5}$$</p>
+<p>something is equals to $\alpha 5$.</p>
 ]]></content>
     </entry>
     
