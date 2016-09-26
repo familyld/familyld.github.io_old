@@ -4,9 +4,9 @@
   <subtitle>&lt;br&gt;“不积跬步,无以至千里；&lt;br&gt;不积小流,无以成江海.”&lt;br&gt;&amp;nbsp——荀子《劝学篇》</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://2wildkids.com/"/>
   <updated>2016-09-25T15:23:14.946Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://2wildkids.com/</id>
   
   <author>
     <name>林肯先生</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/09/25/hello-world/"/>
-    <id>http://yoursite.com/2016/09/25/hello-world/</id>
+    <link href="http://2wildkids.com/2016/09/25/hello-world/"/>
+    <id>http://2wildkids.com/2016/09/25/hello-world/</id>
     <published>2016-09-25T09:04:31.077Z</published>
     <updated>2016-09-25T15:23:14.946Z</updated>
     
@@ -41,12 +41,12 @@
     
     </summary>
     
-      <category term="Testing" scheme="http://yoursite.com/categories/Testing/"/>
+      <category term="Testing" scheme="http://2wildkids.com/categories/Testing/"/>
     
     
-      <category term="Testing" scheme="http://yoursite.com/tags/Testing/"/>
+      <category term="Testing" scheme="http://2wildkids.com/tags/Testing/"/>
     
-      <category term="Another Tag" scheme="http://yoursite.com/tags/Another-Tag/"/>
+      <category term="Another Tag" scheme="http://2wildkids.com/tags/Another-Tag/"/>
     
   </entry>
   
