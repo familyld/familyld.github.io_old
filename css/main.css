@@ -1161,9 +1161,6 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-property: border;
   border-bottom: 1px dashed #ccc;
-  border: #f0f8ff;
-  border-style: solid;
-  background: #f0f8ff;
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1667,7 +1664,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #32ffd9;
+  background: #93c4b6;
 }
 .links-of-blogroll {
   font-size: 13px;
