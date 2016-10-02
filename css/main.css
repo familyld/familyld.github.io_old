@@ -1033,7 +1033,7 @@ pre .javascript .function {
   transform: rotate(30deg);
 }
 .posts-expand {
-  padding-top: 40px;
+  padding-top: 0px;
 }
 @media (max-width: 767px) {
   .posts-expand {
@@ -1161,6 +1161,9 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-property: border;
   border-bottom: 1px dashed #ccc;
+  border: #f0f8ff;
+  border-style: solid;
+  background: #f0f8ff;
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1664,7 +1667,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6a99ff;
+  background: #32ffd9;
 }
 .links-of-blogroll {
   font-size: 13px;
