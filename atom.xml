@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-09-26T07:51:56.677Z</updated>
+  <updated>2016-10-03T09:58:58.422Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Introduction</title>
+    <link href="http://2wildkids.com/2016/10/03/Introduction/"/>
+    <id>http://2wildkids.com/2016/10/03/Introduction/</id>
+    <published>2016-10-03T08:53:33.000Z</published>
+    <updated>2016-10-03T09:58:58.422Z</updated>
+    
+    <content type="html"><![CDATA[<p>自从知道了Github Pages和Hexo之后，一直心心念念地想做一个自己的独立博客。虽然从阅读量来说，肯定还是在CSDN、简书或者知乎专栏发布会有更多被阅读的机会，但总感觉或多或少地有些阻碍，不能随心所欲地写作。之前倒是一直把Github当作一个博客，天天把markdown写的笔记contribute到仓库里面，不过鉴于Github支持的是源生的markdown，而markdown本身是不支持latex公式的，所以多少有点遗憾。Anyway，终于用Github Pages+Hexo搭建了这个博客，有MathJax和七牛图床的支持，终于可以随心所欲地写作了~</p>
+<p>鉴于大四一直在忙自己的项目和论文，所以少有时间做些真正原创的技术分享，前期主要打算在这个博客做一些阅读笔记。暑假一直在读周志华博士写的《机器学习》一书，把本科生课程部分（书的前半部分）的笔记基本都整理好了，放在了Github上面，但这显然是不够的，想做研究当然还是得往更深的技术里钻，所以书的后半部分还要继续细读精读。另一方面，这本书比较新，所以习题部分目前网上还没有比较好的解答。书中的公式有些比较复杂，对工程人员来说理解可能有不少困难，所以我也希望可以用课余的时间认真地把这本书的习题过一遍，如何对公式进行向量化，如何融入到实际的项目中，用代码写出来，然后为开源做点贡献，应该会有不少的收获。之后会逐渐把笔记和解答迁移到这个博客里，需要的时间可能比较多，不过贵在坚持。</p>
+<a id="more"></a>
+<p>因为个人研究方向主攻数据挖掘的推荐系统领域，所以阅读的书籍和文章也比较多涉及这个方面。而中文书籍中，个人认为推荐系统领域最好的一本入门书籍是项亮的《推荐系统实践》，之后也会在这个博客中更新阅读这本书的笔记。另外也会搬运一些机器学习和数据挖掘比较好的文章到这个博客中，加入一些自己的理解，算是记录自己成长的轨迹吧，虽然不是技术原创，但在阅读和学习的过程中，记录下自己的见解，以后再看也会有很大的帮助。</p>
+<p>另外，个人对Python也是相当地热爱，作为数据科学方面的研究，Python确实是一个不可多得的利器，所以要是遇到好的文章，也会收录到这个博客中。再有就是linux和Hadoop、Spark方面的一些笔记了，要做大数据总是免不了碰到这些东西。虽然工具年年变，说不定以后Spark就不像现在这么火了，但是好的工具总是有研究的价值，好好学的话还是能有不错的收获的。</p>
+<p>最后，也是一点小寄望吧，希望以后可以有多一些技术原创，多一些项目分享，目前先脚踏实地地积累知识吧。</p>
+<p>以上。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自从知道了Github Pages和Hexo之后，一直心心念念地想做一个自己的独立博客。虽然从阅读量来说，肯定还是在CSDN、简书或者知乎专栏发布会有更多被阅读的机会，但总感觉或多或少地有些阻碍，不能随心所欲地写作。之前倒是一直把Github当作一个博客，天天把markdown写的笔记contribute到仓库里面，不过鉴于Github支持的是源生的markdown，而markdown本身是不支持latex公式的，所以多少有点遗憾。Anyway，终于用Github Pages+Hexo搭建了这个博客，有MathJax和七牛图床的支持，终于可以随心所欲地写作了~&lt;/p&gt;
+&lt;p&gt;鉴于大四一直在忙自己的项目和论文，所以少有时间做些真正原创的技术分享，前期主要打算在这个博客做一些阅读笔记。暑假一直在读周志华博士写的《机器学习》一书，把本科生课程部分（书的前半部分）的笔记基本都整理好了，放在了Github上面，但这显然是不够的，想做研究当然还是得往更深的技术里钻，所以书的后半部分还要继续细读精读。另一方面，这本书比较新，所以习题部分目前网上还没有比较好的解答。书中的公式有些比较复杂，对工程人员来说理解可能有不少困难，所以我也希望可以用课余的时间认真地把这本书的习题过一遍，如何对公式进行向量化，如何融入到实际的项目中，用代码写出来，然后为开源做点贡献，应该会有不少的收获。之后会逐渐把笔记和解答迁移到这个博客里，需要的时间可能比较多，不过贵在坚持。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Testing" scheme="http://2wildkids.com/categories/Testing/"/>
+    
+    
+      <category term="Testing" scheme="http://2wildkids.com/tags/Testing/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://2wildkids.com/2016/09/25/hello-world/"/>
     <id>http://2wildkids.com/2016/09/25/hello-world/</id>
     <published>2016-09-25T09:04:31.077Z</published>
-    <updated>2016-09-26T07:51:56.677Z</updated>
+    <updated>2016-10-04T08:54:06.450Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -47,8 +77,6 @@
     
     
       <category term="Testing" scheme="http://2wildkids.com/tags/Testing/"/>
-    
-      <category term="Another Tag" scheme="http://2wildkids.com/tags/Another-Tag/"/>
     
   </entry>
   
