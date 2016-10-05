@@ -6,57 +6,78 @@
     <entry>
       <title><![CDATA[常用推荐算法]]></title>
       <url>http://2wildkids.com/2016/10/04/%E5%B8%B8%E7%94%A8%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/</url>
-      <content type="html"><![CDATA[<p>这篇<a href="http://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&amp;mid=2247483811&amp;idx=1&amp;sn=fc3ee4ddfc4a8d6014a4cd90cdb5983c&amp;scene=4#wechat_redirect" target="_blank" rel="external">文章</a>首发在【阿里技术】这个微信公众号，内容主要围绕电商中用到的一些推荐算法，参考了Xavier Amatriain在CMU的Machine Learning暑期学校上的讲授的内容。不仅有提到一些基础的推荐算法，也讲了一些推荐系统领域比较新的研究方向，个人认为不错，摘录在博客里，也加入一点自己的理解。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTHvAa4QXaVREQrpNA4K2dLTZptM6Lx5bXGONTp3h3ia1nKibic8vF65c4A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g1"></p>
+      <content type="html"><![CDATA[<p>这篇<a href="http://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&amp;mid=2247483811&amp;idx=1&amp;sn=fc3ee4ddfc4a8d6014a4cd90cdb5983c&amp;scene=4#wechat_redirect" target="_blank" rel="external">文章</a>首发在【阿里技术】这个微信公众号，内容上主要围绕电商中用到的一些推荐算法，参考了 Xavier Amatriain 在CMU的 Machine Learning 暑期学校上的讲授的内容。不仅有提到一些基础的推荐算法，也讲了一些推荐系统领域比较新的研究方向，个人认为是一篇不错的概括性文章，摘录在博客里，加入一点自己的理解。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><!-- MarkdownTOC -->
+<ul>
+<li><a href="#推荐系统简介">推荐系统简介</a></li>
+<li><a href="#传统的推荐算法">传统的推荐算法</a><ul>
+<li><a href="#非个性化推荐：热度排行（popularity）">非个性化推荐：热度排行（Popularity）</a></li>
+<li><a href="#协同过滤（collaborative-filtering）">协同过滤（Collaborative Filtering）</a><ul>
+<li><a href="#基于内容知识的推荐（content-basedknowledge-based）">基于内容/知识的推荐（Content-based/Knowledge-based）</a></li>
+<li><a href="#混合方法（hybird-approaches）">混合方法（Hybird Approaches）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#推荐算法的最新研究">推荐算法的最新研究</a><ul>
+<li><a href="#学习排序（learning-to-rank）">学习排序（Learning to Rank）</a></li>
+<li><a href="#页面整体优化（page-optimization）">页面整体优化（Page Optimization）</a></li>
+<li><a href="#情景推荐：张量分解分解机（factoriztion-machine）">情景推荐：张量分解/分解机（Factoriztion Machine）</a></li>
+<li><a href="#深度学习（deep-learning）">深度学习（Deep Learning）</a></li>
+</ul>
+</li>
+<li><a href="#总结">总结</a></li>
+</ul>
+<!-- /MarkdownTOC -->
 <a id="more"></a>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTbUicd6Pl0wqnPYQBSeGn5MtNlIACjiaJbFMpsibmSv1kbkN20TZd4husw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g2"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcT49L9VN46EzTzjtXvtnFaU0T3rDeM0a4RCib1ibvoryQ8F0K5JXLHqxnQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g3"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTVySAgJlzJozr6q4oCkfKHcDFxAhEiacV3CgFKaNlDu8hib7SEibeUQ2dg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g4"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTytNVMyD5ykNheK6V2CLoqiad8CqvyQiaCpX1WIcZvBM2wMDFBZxDlGQQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g5"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcT4pX89yEuwibuDBbCJhI8rArjrECq9AtgljL0mcJF9EE12DYwWqYhoUw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g6"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTF9SPGuhaEPDlCY3I3kdx0mB2VyJYJHvdAWByMvTrvjH8gNv4CBLwoA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g7"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTeA6YjItbMbsSHQlZBRibEeqzO2a7c4a5JjvUQ4ricfCKYPqAaNUj9D4A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g8"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTROKbm78LyJdEcbsmiaBrWuv9MaQMnJn36x3delkxiamgCicsoKYjWzW5Q/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g9"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTy5Odt8aGdJEl0IxUoicg5HEHz74gPR3D8UWYucoGakMGDdAHeKReZmQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g10"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTAgzNxA1zKDz6QRMva0uggUYwDia8zLzX0dfqQU9BpeUWicolcQ0ibowmw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g11"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTLlNTibckLZgldC1Scyyd56lcAfJLRCBRKZSUO1tibVv5ick3oLjq5hvoQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g12"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTWIU0LWJfRtvOdshTNbukbQaNTz2el5e3cQNyoUQ2HcA3hwb8tRy5YQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g13"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTsicMIeOjTMAdX6YHraIicSuavrWQD06FE3eSXF07hhj0BibPqWTOOuwNw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g14"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTNAQF8817snDyJco1ZDf9gKVYWszwIM9Fu0SUs5795JC6euwoMXiawhA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g15"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTpkRoI5c5upuJKSD9rYoHG72n9kp8gza7icOCvEQFhulGia3WZeYpS5Ew/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g16"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcT1ZInZVv5I1kYFWhq71cXfH9bibykP96m6ehmiauG6nvhKiaf01cOdMibiaA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g17"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTrjbicCb3DIFHfL5v9lBzTdlZZ5MWkqicstbe2ibrrs7O6df9F6rcbpnyg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g18"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTSk8mm9sB3WibjCOm733AStThBjxMWaib1Ay91tNu7qTiaaQxkqn0ZdmOQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g19"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTq3zFAZHica1QAwuo9QkqdPg8jznWIvoBQjBzLJQMIEianEWnzyxhk7qA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g20"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTDibRBzmrManicbukfYu2OYvRcILibDnT8ibdY6ZC7mZSe9ZY4tv9bwwpAg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g21"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTUXEnzKVreJSOWaPzRsgN4jyZXKkeStJcSvHGXSOoLFicn8kicuPWC1zQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g22"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTsvpmsjXmF3zRChOjrutj0GwibCIYzu0VtIc3AnYay0lwibYcZ59enpYw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g23"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTysFzbD3d8WZM6SDgCn1bYF3EIWGGmvSAkX6fOqqUrPKec3U5woefyw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g24"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTbic9qMcVXJIwfcEe5tgu1TXTxZoP8zaBuTjiaqxEia9unF1osmxwswr3w/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g25"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTPzv1NibLbsmDvTjkd78B3F5NPbrT8FqyHWTZ53yJQO8iazb1hAIgyytw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g26"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTIFnzdu0gBQepKZpKwVC1Xdr99hnEwQmaSibUVMegehUCAnicvdS3dicvA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g27"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTBFCf0uHvzXxmhsgoUcIkW0FXaM72ajIs2TClYhwUxOyicFV6FXKNuBQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g28"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTyC1Ficamu90saJLGC22DkPGJ1WlApr5gzKv71AwVvdMPG5CHFI7bwYQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g29"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTl8f3eDUT9ovs1aqb25HtwIvvCdLn3U8kINwNNhtR7tRpZ1RbOcn6Tg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g30"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTNxOxiayCjic9g2x8wkpVwqSicKqHNPGRDq8tGjfRDDDbWVO4WwibQ94icgw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g31"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTXibLj35LHu4EJHYvnsvKcIJwnEJ62Gr9tKiaCkataC4lvic6nDFBibeXNA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g32"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTx66Tw3x4NAnIHv3wYxVnLBVynaRb2nKaqKibYDYcrDRfIyzj2Wcg1HA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g33"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTHcRZBr47zS9gcq0WMFsAFssiarWF51ZtbTZ2J8VQ6xEhwpvh2pZ9CIw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g34"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTMpCOYgibncziaMBnT4onJOs3ibFhc93yoPfGicR17nU3colCjlRT2sg83g/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g35"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTGiaWLf3PjksRnjo8SfsaqBCCofjABPZEQ5aPYpxONIrqxpbzo7a6cSQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g36"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcT3VQXUHtLRpbDWG5H8col3umQr2P9C36icUp9Z1SnIHR5iaA2TXDr4jgw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g37"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTqReCDISLia3iaRWLvW2d1Lt8avPxzjPqibMADa1icSDwliaFnc2HQt3c5IA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g38"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naIFM5IiabeKPoTeKkVHPuLcTAPvWzYibl9nSIiaCvpS3oZR7JibooAqgqsIyvrIRV5H7xTAOUlw3SZgjQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g39"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5c0Pmbd8NhfFTVXnhibdjDvibV2p15tMLeENH1P41zX0NyelbNr89L5Eg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g40"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5jibuzW7O6AC8Fs3ezgricCyP1k6k9aAIWgG0E8qCflhtLWQVjeyRp0qQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g41"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5vsV6iaMibgoqlkU7OwgshwlckYHMYbR2XGk4Bu1TOicfhZ3dibiap5OdVxw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g42"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5Dib7Xg1GeiaPNUvDu1NlYWwCS4A0EDZbCSlOhicpOSR7VgLqmCD84ic0kQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g43"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5tOCr7ZK6X0mar6I8WJdUbKXPjSyb9qib74qJ2a0B1rJOzWgql3epPsw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g44"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5Nz4D44wibDfrMn6SB8c60eoP2Kg09GnFmzhnyHgaqaOhDko2fdAbNuw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g45"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5jSxH6K2uzaLNBYYQnsu4vJhBsoibCTXudPSx6EmibmFQqYrAGZtQRtSg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g46"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5OfYN7vx0hFsKBuxHz6m76HkpnfuiaXzA6g75617FEuYcFfEyQcdlNWw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g47"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5as2kl0u2XLSc9wibz9J1tGy5ZdicJSCqpNhsqyF0EoFX7Kesulup9U0w/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g48"></p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naJlJMmlfvWV389hc7vsVibm5Hb2eU2hAkyAoQhEksG3V8CKLJJWBy7Km7ViaUyX1sDexRokWAzicwBVA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="g49"></p>
+<h2 id="推荐系统简介"><a href="#推荐系统简介" class="headerlink" title="推荐系统简介"></a>推荐系统简介</h2><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image2.jpeg" alt="g2"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image3.jpeg" alt="g3"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image4.jpeg" alt="g4"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image5.jpeg" alt="g5"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image6.jpeg" alt="g6"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image7.jpeg" alt="g7"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image8.jpeg" alt="g8"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image9.jpeg" alt="g9"></p>
+<h2 id="传统的推荐算法"><a href="#传统的推荐算法" class="headerlink" title="传统的推荐算法"></a>传统的推荐算法</h2><h3 id="非个性化推荐：热度排行（Popularity）"><a href="#非个性化推荐：热度排行（Popularity）" class="headerlink" title="非个性化推荐：热度排行（Popularity）"></a>非个性化推荐：热度排行（Popularity）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image10.jpeg" alt="g10"></p>
+<h3 id="协同过滤（Collaborative-Filtering）"><a href="#协同过滤（Collaborative-Filtering）" class="headerlink" title="协同过滤（Collaborative Filtering）"></a>协同过滤（Collaborative Filtering）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image11.jpeg" alt="g11"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image12.jpeg" alt="g12"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image13.jpeg" alt="g13"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image14.jpeg" alt="g14"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image15.jpeg" alt="g15"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image16.jpeg" alt="g16"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image17.jpeg" alt="g17"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image18.jpeg" alt="g18"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image19.jpeg" alt="g19"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image20.jpeg" alt="g20"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image21.jpeg" alt="g21"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image22.jpeg" alt="g22"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image23.jpeg" alt="g23"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image24.jpeg" alt="g24"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image25.jpeg" alt="g25"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image26.jpeg" alt="g26"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image27.jpeg" alt="g27"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image28.jpeg" alt="g28"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image29.jpeg" alt="g29"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image30.jpeg" alt="g30"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image31.jpeg" alt="g31"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image32.jpeg" alt="g32"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image33.jpeg" alt="g33"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image34.jpeg" alt="g34"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image35.jpeg" alt="g35"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image36.jpeg" alt="g36"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image37.jpeg" alt="g37"></p>
+<h4 id="基于内容-知识的推荐（Content-based-Knowledge-based）"><a href="#基于内容-知识的推荐（Content-based-Knowledge-based）" class="headerlink" title="基于内容/知识的推荐（Content-based/Knowledge-based）"></a>基于内容/知识的推荐（Content-based/Knowledge-based）</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image38.jpeg" alt="g38"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image39.jpeg" alt="g39"></p>
+<h4 id="混合方法（Hybird-Approaches）"><a href="#混合方法（Hybird-Approaches）" class="headerlink" title="混合方法（Hybird Approaches）"></a>混合方法（Hybird Approaches）</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image40.jpeg" alt="g40"></p>
+<h2 id="推荐算法的最新研究"><a href="#推荐算法的最新研究" class="headerlink" title="推荐算法的最新研究"></a>推荐算法的最新研究</h2><h3 id="学习排序（Learning-to-Rank）"><a href="#学习排序（Learning-to-Rank）" class="headerlink" title="学习排序（Learning to Rank）"></a>学习排序（Learning to Rank）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image41.jpeg" alt="g41"></p>
+<h3 id="页面整体优化（Page-Optimization）"><a href="#页面整体优化（Page-Optimization）" class="headerlink" title="页面整体优化（Page Optimization）"></a>页面整体优化（Page Optimization）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image42.jpeg" alt="g42"></p>
+<h3 id="情景推荐：张量分解-分解机（Factoriztion-Machine）"><a href="#情景推荐：张量分解-分解机（Factoriztion-Machine）" class="headerlink" title="情景推荐：张量分解/分解机（Factoriztion Machine）"></a>情景推荐：张量分解/分解机（Factoriztion Machine）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image43.jpeg" alt="g43"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image44.jpeg" alt="g44"></p>
+<h3 id="深度学习（Deep-Learning）"><a href="#深度学习（Deep-Learning）" class="headerlink" title="深度学习（Deep Learning）"></a>深度学习（Deep Learning）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image45.jpeg" alt="g45"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image46.jpeg" alt="g46"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image47.jpeg" alt="g47"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image48.jpeg" alt="g48"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image49.jpeg" alt="g49"></p>
 ]]></content>
     </entry>
     
