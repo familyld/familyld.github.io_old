@@ -150,7 +150,7 @@
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image47.jpeg">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image48.jpeg">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image49.jpeg">
-<meta property="og:updated_time" content="2016-10-05T02:04:01.963Z">
+<meta property="og:updated_time" content="2016-10-05T02:09:51.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用推荐算法">
 <meta name="twitter:description" content="这篇文章首发在【阿里技术】这个微信公众号，内容上主要围绕电商中用到的一些推荐算法，参考了 Xavier Amatriain 在CMU的 Machine Learning 暑期学校上的讲授的内容。不仅有提到一些基础的推荐算法，也讲了一些推荐系统领域比较新的研究方向，个人认为是一篇不错的概括性文章，摘录在博客里，加入一点自己的理解。
@@ -406,10 +406,12 @@
 <li><a href="#传统的推荐算法">传统的推荐算法</a><ul>
 <li><a href="#非个性化推荐：热度排行（popularity）">非个性化推荐：热度排行（Popularity）</a></li>
 <li><a href="#协同过滤（collaborative-filtering）">协同过滤（Collaborative Filtering）</a><ul>
-<li><a href="#基于内容知识的推荐（content-basedknowledge-based）">基于内容/知识的推荐（Content-based/Knowledge-based）</a></li>
-<li><a href="#混合方法（hybird-approaches）">混合方法（Hybird Approaches）</a></li>
+<li><a href="#memory-based（aka-neighborhood-based）方法：item-baseduser-based-cf">Memory-based（aka neighborhood-based）方法：Item-based/User-based CF</a></li>
+<li><a href="#model-based方法：频繁项挖掘聚类分类回归矩阵分解rbm图模型">Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型</a></li>
 </ul>
 </li>
+<li><a href="#基于内容知识的推荐（content-basedknowledge-based）">基于内容/知识的推荐（Content-based/Knowledge-based）</a></li>
+<li><a href="#混合方法（hybird-approaches）">混合方法（Hybird Approaches）</a></li>
 </ul>
 </li>
 <li><a href="#推荐算法的最新研究">推荐算法的最新研究</a><ul>
@@ -433,14 +435,14 @@
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image9.jpeg" alt="g9"></p>
 <h2 id="传统的推荐算法"><a href="#传统的推荐算法" class="headerlink" title="传统的推荐算法"></a>传统的推荐算法</h2><h3 id="非个性化推荐：热度排行（Popularity）"><a href="#非个性化推荐：热度排行（Popularity）" class="headerlink" title="非个性化推荐：热度排行（Popularity）"></a>非个性化推荐：热度排行（Popularity）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image10.jpeg" alt="g10"></p>
 <h3 id="协同过滤（Collaborative-Filtering）"><a href="#协同过滤（Collaborative-Filtering）" class="headerlink" title="协同过滤（Collaborative Filtering）"></a>协同过滤（Collaborative Filtering）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image11.jpeg" alt="g11"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image12.jpeg" alt="g12"></p>
+<h4 id="Memory-based（aka-neighborhood-based）方法：Item-based-User-based-CF"><a href="#Memory-based（aka-neighborhood-based）方法：Item-based-User-based-CF" class="headerlink" title="Memory-based（aka neighborhood-based）方法：Item-based/User-based CF"></a>Memory-based（aka neighborhood-based）方法：Item-based/User-based CF</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image12.jpeg" alt="g12"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image13.jpeg" alt="g13"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image14.jpeg" alt="g14"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image15.jpeg" alt="g15"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image16.jpeg" alt="g16"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image17.jpeg" alt="g17"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image18.jpeg" alt="g18"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image19.jpeg" alt="g19"></p>
+<h4 id="Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型"><a href="#Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型" class="headerlink" title="Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型"></a>Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image19.jpeg" alt="g19"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image20.jpeg" alt="g20"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image21.jpeg" alt="g21"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image22.jpeg" alt="g22"></p>
@@ -459,9 +461,9 @@
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image35.jpeg" alt="g35"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image36.jpeg" alt="g36"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image37.jpeg" alt="g37"></p>
-<h4 id="基于内容-知识的推荐（Content-based-Knowledge-based）"><a href="#基于内容-知识的推荐（Content-based-Knowledge-based）" class="headerlink" title="基于内容/知识的推荐（Content-based/Knowledge-based）"></a>基于内容/知识的推荐（Content-based/Knowledge-based）</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image38.jpeg" alt="g38"></p>
+<h3 id="基于内容-知识的推荐（Content-based-Knowledge-based）"><a href="#基于内容-知识的推荐（Content-based-Knowledge-based）" class="headerlink" title="基于内容/知识的推荐（Content-based/Knowledge-based）"></a>基于内容/知识的推荐（Content-based/Knowledge-based）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image38.jpeg" alt="g38"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image39.jpeg" alt="g39"></p>
-<h4 id="混合方法（Hybird-Approaches）"><a href="#混合方法（Hybird-Approaches）" class="headerlink" title="混合方法（Hybird Approaches）"></a>混合方法（Hybird Approaches）</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image40.jpeg" alt="g40"></p>
+<h3 id="混合方法（Hybird-Approaches）"><a href="#混合方法（Hybird-Approaches）" class="headerlink" title="混合方法（Hybird Approaches）"></a>混合方法（Hybird Approaches）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image40.jpeg" alt="g40"></p>
 <h2 id="推荐算法的最新研究"><a href="#推荐算法的最新研究" class="headerlink" title="推荐算法的最新研究"></a>推荐算法的最新研究</h2><h3 id="学习排序（Learning-to-Rank）"><a href="#学习排序（Learning-to-Rank）" class="headerlink" title="学习排序（Learning to Rank）"></a>学习排序（Learning to Rank）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image41.jpeg" alt="g41"></p>
 <h3 id="页面整体优化（Page-Optimization）"><a href="#页面整体优化（Page-Optimization）" class="headerlink" title="页面整体优化（Page Optimization）"></a>页面整体优化（Page Optimization）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image42.jpeg" alt="g42"></p>
 <h3 id="情景推荐：张量分解-分解机（Factoriztion-Machine）"><a href="#情景推荐：张量分解-分解机（Factoriztion-Machine）" class="headerlink" title="情景推荐：张量分解/分解机（Factoriztion Machine）"></a>情景推荐：张量分解/分解机（Factoriztion Machine）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image43.jpeg" alt="g43"></p>
@@ -667,7 +669,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐系统简介"><span class="nav-number">2.</span> <span class="nav-text">推荐系统简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的推荐算法"><span class="nav-number">3.</span> <span class="nav-text">传统的推荐算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非个性化推荐：热度排行（Popularity）"><span class="nav-number">3.1.</span> <span class="nav-text">非个性化推荐：热度排行（Popularity）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协同过滤（Collaborative-Filtering）"><span class="nav-number">3.2.</span> <span class="nav-text">协同过滤（Collaborative Filtering）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于内容-知识的推荐（Content-based-Knowledge-based）"><span class="nav-number">3.2.1.</span> <span class="nav-text">基于内容/知识的推荐（Content-based/Knowledge-based）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混合方法（Hybird-Approaches）"><span class="nav-number">3.2.2.</span> <span class="nav-text">混合方法（Hybird Approaches）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐算法的最新研究"><span class="nav-number">4.</span> <span class="nav-text">推荐算法的最新研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习排序（Learning-to-Rank）"><span class="nav-number">4.1.</span> <span class="nav-text">学习排序（Learning to Rank）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面整体优化（Page-Optimization）"><span class="nav-number">4.2.</span> <span class="nav-text">页面整体优化（Page Optimization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情景推荐：张量分解-分解机（Factoriztion-Machine）"><span class="nav-number">4.3.</span> <span class="nav-text">情景推荐：张量分解/分解机（Factoriztion Machine）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习（Deep-Learning）"><span class="nav-number">4.4.</span> <span class="nav-text">深度学习（Deep Learning）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐系统简介"><span class="nav-number">2.</span> <span class="nav-text">推荐系统简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的推荐算法"><span class="nav-number">3.</span> <span class="nav-text">传统的推荐算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非个性化推荐：热度排行（Popularity）"><span class="nav-number">3.1.</span> <span class="nav-text">非个性化推荐：热度排行（Popularity）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协同过滤（Collaborative-Filtering）"><span class="nav-number">3.2.</span> <span class="nav-text">协同过滤（Collaborative Filtering）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-based（aka-neighborhood-based）方法：Item-based-User-based-CF"><span class="nav-number">3.2.1.</span> <span class="nav-text">Memory-based（aka neighborhood-based）方法：Item-based/User-based CF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型"><span class="nav-number">3.2.2.</span> <span class="nav-text">Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于内容-知识的推荐（Content-based-Knowledge-based）"><span class="nav-number">3.3.</span> <span class="nav-text">基于内容/知识的推荐（Content-based/Knowledge-based）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合方法（Hybird-Approaches）"><span class="nav-number">3.4.</span> <span class="nav-text">混合方法（Hybird Approaches）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐算法的最新研究"><span class="nav-number">4.</span> <span class="nav-text">推荐算法的最新研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习排序（Learning-to-Rank）"><span class="nav-number">4.1.</span> <span class="nav-text">学习排序（Learning to Rank）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面整体优化（Page-Optimization）"><span class="nav-number">4.2.</span> <span class="nav-text">页面整体优化（Page Optimization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情景推荐：张量分解-分解机（Factoriztion-Machine）"><span class="nav-number">4.3.</span> <span class="nav-text">情景推荐：张量分解/分解机（Factoriztion Machine）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习（Deep-Learning）"><span class="nav-number">4.4.</span> <span class="nav-text">深度学习（Deep Learning）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>
