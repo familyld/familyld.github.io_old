@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Testing," />
+  <meta name="keywords" content="Hexo,MathJax," />
 
 
 
@@ -86,19 +86,26 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。
+问题重现先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：
+1$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://2wildkids.com/2016/09/25/hello-world/index.html">
+<meta property="og:title" content="如何处理Hexo和MathJax的兼容问题">
+<meta property="og:url" content="http://2wildkids.com/2016/10/06/如何处理Hexo和MathJax的兼容问题/index.html">
 <meta property="og:site_name" content="林肯先生的Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-04T08:54:06.450Z">
+<meta property="og:description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。
+问题重现先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：
+1$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \">
+<meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer1.png">
+<meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer2.png">
+<meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/After_Change_Markdown_Renderer1.png">
+<meta property="og:updated_time" content="2016-10-06T15:43:40.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="如何处理Hexo和MathJax的兼容问题">
+<meta name="twitter:description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。
+问题重现先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：
+1$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \">
+<meta name="twitter:image" content="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer1.png">
 
 
 
@@ -119,9 +126,9 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://2wildkids.com/2016/09/25/hello-world/"/>
+  <link rel="canonical" href="http://2wildkids.com/2016/10/06/如何处理Hexo和MathJax的兼容问题/"/>
 
-  <title> Hello World | 林肯先生的Blog </title>
+  <title> 如何处理Hexo和MathJax的兼容问题 | 林肯先生的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +281,7 @@ Quick">
             
             
               
-                Hello World
+                如何处理Hexo和MathJax的兼容问题
               
             
           </h1>
@@ -286,8 +293,8 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T17:04:31+08:00" content="2016-09-25">
-              2016-09-25
+            <time itemprop="dateCreated" datetime="2016-10-06T22:09:31+08:00" content="2016-10-06">
+              2016-10-06
             </time>
           </span>
 
@@ -300,8 +307,8 @@ Quick">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Testing/" itemprop="url" rel="index">
-                    <span itemprop="name">Testing</span>
+                  <a href="/categories/建站/" itemprop="url" rel="index">
+                    <span itemprop="name">建站</span>
                   </a>
                 </span>
 
@@ -338,16 +345,47 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><a id="more"></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<h3 id="Test-MathJAX"><a href="#Test-MathJAX" class="headerlink" title="Test MathJAX"></a>Test MathJAX</h3><script type="math/tex; mode=display">a = \frac{1}{5}</script><p>something is equals to $\alpha 5$.</p>
+        <p>今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。</p>
+<h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><p>先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$R_&#123;m \times n&#125; = U_&#123;m \times m&#125; S_&#123;m \times n&#125; V_&#123;n \times n&#125;&apos;$$</div></pre></td></tr></table></figure>
+<p>渲染出来却变成了（红框内变为了斜体）：</p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer1.png" alt="before"></p>
+<a id="more"></a>
+<h2 id="问题思考"><a href="#问题思考" class="headerlink" title="问题思考"></a>问题思考</h2><p>琢磨了一下，MathJax支持是开了的，这么简单的公式都渲染不出，肯定不是MathJax要背的锅。简单地测试了一下，发现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$R_&#123;m \times n&#125;$$</div></pre></td></tr></table></figure>
+<p>这个公式是能work的，那到底是什么问题呢？回到前面的公式，细心观察一下，不难发现渲染之后<strong>下划线 <code>_</code> 被吞掉了</strong>，而<strong>两个下划线 <code>_</code> 之间的文本变为了斜体</strong>，这就很有意思了。</p>
+<p>浏览一下网页源码，可以看到对应这一条公式的代码是：</p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer2.png" alt="before"></p>
+<p>原来下划线被渲染成了 <code>&lt;em&gt;</code>，在HTML里这个tag是用于将文本准换为斜体进行强调的。为什么会产生这样的错误呢？其实，在Markdown语法中 <em>两个下划线之间的文本会被转换为斜体</em>，所以<strong>这个错误是由Markdown渲染器引起的</strong>。Markdown本身没有支持Latex，在渲染时正则匹配到两条下划线就会把下划线替换成了 <code>&lt;em&gt;</code>，于是到了MathJax渲染公式时就彻底懵了。</p>
+<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><p>意识到这个问题的本质后，带着疑问，我先来到Next主题的<a href="https://github.com/iissnan/hexo-theme-next/" target="_blank" rel="external">Github主页</a>，在<a href="https://github.com/iissnan/hexo-theme-next/issues?utf8=%E2%9C%93&amp;q=mathjax" target="_blank" rel="external">issue</a>里面搜索MathJax。很可惜，没有找到直接的答案，但是思路清晰了一些。<strong>Next不背这个锅</strong>，我们要做的是<strong>更换Hexo使用的Markdown渲染器</strong>。</p>
+<p>接下来我又到Hexo的<a href="https://github.com/hexojs/hexo/" target="_blank" rel="external">Github主页</a>搜索相关的解决方案，在<a href="https://github.com/hexojs/hexo/issues/524" target="_blank" rel="external">issue #524</a> 中，有人提到了<strong>可以使用 rawblock 来解决</strong>，可是每次要写公式都得在公式前后加上 rawblock 来声明实现太烦了，对于公式大户来说简直要崩溃（想想之后要写机器学习的相关文章，一大堆公示证明，已经想手动再见了）。</p>
+<p>另一个提出的解决方案是<strong>更换pandoc渲染器</strong>，pandoc大法固然好，但要下载安装完pandoc，然后再装hexo插件实在是太重量级了.. 我只是想轻松愉悦地写写博客呀。当然，感兴趣的朋友不妨去<a href="https://github.com/wzpan/hexo-renderer-pandoc" target="_blank" rel="external">hexo-renderer-pandoc主页</a>看看。</p>
+<p>有没有更好的方法呢？我在<a href="https://segmentfault.com/q/1010000003987383/a-1020000003987577/revision" target="_blank" rel="external">segmentfault</a>查到另一位朋友写的解决方案，可以<strong>使用 hexo-renderer-markdown-it 进行渲染</strong>，似乎是个不错的思路，在hexo-renderer-markdown-it的<a href="https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki/Getting-Started" target="_blank" rel="external">文档</a>中可以看到操作相当简单：</p>
+<ol>
+<li><code>npm uninstall hexo-renderer-marked --save</code></li>
+<li><code>npm install hexo-renderer-markdown-it --save</code></li>
+</ol>
+<p>两行命令即可完成，先卸载Hexo自带的Markdown解析器 hexo-renderer-marked 再安装 hexo-renderer-markdown-it 就可以了。安装完以后，先 <code>hexo clean &amp;&amp; hexo g</code> 重新生成静态网页，然后 <code>hexo s</code> 查看，这回公式能正常显示了：</p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/After_Change_Markdown_Renderer1.png" alt="after"></p>
+<p>但是这是我又发现一个新的问题，使用 hexo-renderer-markdown-it 渲染之后，我原本为Markdown编写的<strong>TOC里的链接都失效了</strong>，而<strong>侧边栏的快速导航链接也都失效了</strong>。这怎么可以呢？文章写得短还好，鼠标滚轮滚一滚就好了。要是写得长那岂不就得浪费很多时间才能定位到自己想看的地方？这可不行！！！</p>
+<p>继续查找更优的解决方案，Hexo有没有更好的Markdown渲染插件呢？有的，在<a href="https://hexo.io/plugins/" target="_blank" rel="external">Hexo主站的插件页</a>搜索关键字 Markdown，发现了 hexo-renderer-kramed 这个插件，打开它的<a href="https://github.com/sun11/hexo-renderer-kramed" target="_blank" rel="external">Github主页</a>，描述已经说得很清楚，作者fork了 hexo-renderer-marked 项目，并且只针对MathJax支持进行了改进，这正是我们需要的！！卸载 hexo-renderer-marked（注意，如果你使用了其他的渲染插件，请卸载对应的插件），然后安装 hexo-renderer-kramed：</p>
+<ol>
+<li><code>npm uninstall hexo-renderer-marked --save</code></li>
+<li><code>npm install hexo-renderer-kramed --save</code></li>
+</ol>
+<p>这下，不仅能正常使用TOC，也能完美地支持MathJax渲染了。至此，问题得到了解决。</p>
+<p>P.S. 其实，这个问题就是因为Markdown渲染和MathJax渲染冲突造成的，除了换别的渲染器，<strong>直接修改渲染用的正则表达式</strong>也是一种解决思路，但是这个思路有一定风险，如果引起了别的bug而没有及时发现，自己又没有做好备份和记录，就需要浪费很多额外的时间来定位问题。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>简单来说，要让你的Hexo支持MathJax渲染公式，你只需要使用两条命令：</p>
+<ol>
+<li><code>npm uninstall hexo-renderer-marked --save</code></li>
+<li><code>npm install hexo-renderer-kramed --save</code></li>
+</ol>
+<p>第一条命令用于卸载 hexo-renderer-marked（注意，如果你使用了其他的渲染插件，请卸载对应的插件），它是hexo自带的Markdown渲染引擎。</p>
+<p>第二条命令用于安装 hexo-renderer-kramed 插件，这个渲染插件针对MathJax支持进行了改进。安装完成后，重新生成博客就会惊喜地发现你的公式已经能够正常显示了。</p>
+<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>作为一名编程人员，不屈服于bug，不妥协于简陋的solution是很重要的。除此之外，也要善于定位问题和解决问题，能够弄清楚出问题的地方，并且利用丰富的网络资源来解决问题。</p>
+<p>最后，感谢开源和分享。</p>
+<p>最后的最后，再码一条写在SVM笔记里的长公式检验一下吧：</p>
+<script type="math/tex; mode=display">\min_{\mathbf{w},b} \frac{1}{2} \Vert \mathbf{w} \Vert^2 \quad s.t. \quad y_i(\mathbf{w}^T\phi(\mathbf{x})+b) \geq 1, \quad  i=1,2,...,m\qquad(9)</script><p>完美~ The end.</p>
 
       
     </div>
@@ -386,7 +424,9 @@ Quick">
       
         <div class="post-tags">
           
-            <a href="/tags/Testing/" rel="tag">#Testing</a>
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/MathJax/" rel="tag">#MathJax</a>
           
         </div>
       
@@ -395,13 +435,13 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/04/常用推荐算法/" rel="next" title="常用推荐算法">
+                <i class="fa fa-chevron-left"></i> 常用推荐算法
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/03/Introduction/" rel="prev" title="Introduction">
-                Introduction <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,7 +582,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-MathJAX"><span class="nav-number">1.5.</span> <span class="nav-text">Test MathJAX</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题重现"><span class="nav-number">1.</span> <span class="nav-text">问题重现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题思考"><span class="nav-number">2.</span> <span class="nav-text">问题思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决过程"><span class="nav-number">3.</span> <span class="nav-text">解决过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感想"><span class="nav-number">5.</span> <span class="nav-text">感想</span></a></li></ol></div>
             
           </div>
         </section>
