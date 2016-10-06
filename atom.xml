@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-10-05T02:09:51.565Z</updated>
+  <updated>2016-10-06T03:44:59.786Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://2wildkids.com/2016/10/04/%E5%B8%B8%E7%94%A8%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/"/>
     <id>http://2wildkids.com/2016/10/04/常用推荐算法/</id>
     <published>2016-10-04T13:38:05.000Z</published>
-    <updated>2016-10-05T02:09:51.565Z</updated>
+    <updated>2016-10-06T03:44:59.786Z</updated>
     
     <content type="html"><![CDATA[<p>这篇<a href="http://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&amp;mid=2247483811&amp;idx=1&amp;sn=fc3ee4ddfc4a8d6014a4cd90cdb5983c&amp;scene=4#wechat_redirect" target="_blank" rel="external">文章</a>首发在【阿里技术】这个微信公众号，内容上主要围绕电商中用到的一些推荐算法，参考了 Xavier Amatriain 在CMU的 Machine Learning 暑期学校上的讲授的内容。不仅有提到一些基础的推荐算法，也讲了一些推荐系统领域比较新的研究方向，个人认为是一篇不错的概括性文章，摘录在博客里，加入一点自己的理解。</p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><!-- MarkdownTOC -->
@@ -29,7 +29,7 @@
 <li><a href="#传统的推荐算法">传统的推荐算法</a><ul>
 <li><a href="#非个性化推荐：热度排行（popularity）">非个性化推荐：热度排行（Popularity）</a></li>
 <li><a href="#协同过滤（collaborative-filtering）">协同过滤（Collaborative Filtering）</a><ul>
-<li><a href="#memory-based（aka-neighborhood-based）方法：item-baseduser-based-cf">Memory-based（aka neighborhood-based）方法：Item-based/User-based CF</a></li>
+<li><a href="#memory-based-方法">Memory-based 方法</a></li>
 <li><a href="#model-based方法：频繁项挖掘聚类分类回归矩阵分解rbm图模型">Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型</a></li>
 </ul>
 </li>
@@ -49,23 +49,48 @@
 <!-- /MarkdownTOC -->
 <a id="more"></a>
 <h2 id="推荐系统简介"><a href="#推荐系统简介" class="headerlink" title="推荐系统简介"></a>推荐系统简介</h2><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image2.jpeg" alt="g2"></p>
+<p>推荐系统本身就是为了解决信息过载这个问题而出现的，在互联网出现以后，人们在生活中所能获取到的消息呈爆炸性增长。从衣食住行再到其他一些更高端的需求，我们都有非常多的选择，但是要怎么在较短的时间内从这么多的选择里找到自己最感兴趣的那个呢？推荐系统解决的就是这样一个问题。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image3.jpeg" alt="g3"></p>
+<p>事实上，<strong>解决信息过载的问题并不是只有推荐系统这一个手段</strong>。PC时代早期出现的门户网站是一种手段，帮助上网的人快速找到想要浏览的网站。而搜索引擎也是一种很好的办法，通过关键字来筛选出用户想要看的网页。但以上两种途径展示的内容对任意两个上网用户来说都是相同的。由于每个人的喜好总会有一部分和别人重叠，而一部分比较特殊，为了展示的内容能尽可能符合大多数人的期望，导航/搜索引擎只能给出重叠最多的部分，也即最流行的网站/网页，没有办法做到根据不同用户的喜好提供不同结果。推荐系统则致力于解决这一难点，实现千人千面的效果。</p>
+<p>P.S. 事实上，目前在搜索引擎这个研究领域，已经有根据用户搜索习惯和搜索历史进行个性化结果展示的研究了，可以说是吸取了推荐系统的精髓进行改进的结果吧。随着计算机处理数据的能力上升，个性化将是未来的必然趋势。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image4.jpeg" alt="g4"></p>
+<p>Netflix举办的百万美元竞赛绝对是推荐系统发展史上一个重要的标志，可以说从那以后，推荐系统的研究才开始真正地被重视，随后就是百花齐放，越来越多的算法和推荐架构被提出来了。</p>
+<p>特别Mark一下<strong>推荐系统的未来——基于上下文的推荐</strong>，这个确实是很值得思考的。尽管目前关注推荐系统的研究已经不少了，但绝大部分都是使用协同过滤技术，或者把推荐视作一个二分类问题来解决的。有一个很明显的缺点就是它们都需要大量的标记数据才能实现准确的预测。还有一个问题就是，这里说的推荐并没有针对用户实际所处的环境来给出结果，只是从用户的历史记录和习惯来推测，给出他可能喜欢的其它商品，而<strong>没有关注用户是否真的有需求</strong>。<strong>怎么把我们从大量历史数据中学习到的知识应用到用户所处的具体场景中？</strong>这是一个等待研究的相当有价值的问题。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image5.jpeg" alt="g5"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image6.jpeg" alt="g6"></p>
+<p>这些指标都蛮有意思的，但是并不是都能通过离线测试来得出，比方说用户满意度、惊喜性等等，都是一些比较主观的东西，在这种情况下，怎么能够提高这些指标呢？</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image7.jpeg" alt="g7"></p>
+<p>这里列了几个比较传统的因素：相似的人越喜欢一件物品，那么用户就越有可能也喜欢它；用户对相似的物品越喜爱，那么也越有可能喜欢这一件物品；对这件物品的评论中赞赏的话越多，则用户也越有可能对这件物品感兴趣；用户和这件物品的历史交互行为越多，也意味着用户对这件物品越感兴趣…</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image8.jpeg" alt="g8"></p>
+<p>虽然说我们做研究主要是针对推荐的算法，但在工业界里，一个真正的推荐产品，必须要有良好的用户界面，准确的产品定位，否则从一开始就输了，连用户数据都获取不到，自然也就没有所谓个性化的后话了。特别地，花在处理数据上的时间应该是最多的，因为从真实场景中收集到的数据往往都有很大的噪音，如果不经过处理就放进算法跑的话，算法再好也难以获得好的结果。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image9.jpeg" alt="g9"></p>
 <h2 id="传统的推荐算法"><a href="#传统的推荐算法" class="headerlink" title="传统的推荐算法"></a>传统的推荐算法</h2><h3 id="非个性化推荐：热度排行（Popularity）"><a href="#非个性化推荐：热度排行（Popularity）" class="headerlink" title="非个性化推荐：热度排行（Popularity）"></a>非个性化推荐：热度排行（Popularity）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image10.jpeg" alt="g10"></p>
-<h3 id="协同过滤（Collaborative-Filtering）"><a href="#协同过滤（Collaborative-Filtering）" class="headerlink" title="协同过滤（Collaborative Filtering）"></a>协同过滤（Collaborative Filtering）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image11.jpeg" alt="g11"></p>
-<h4 id="Memory-based（aka-neighborhood-based）方法：Item-based-User-based-CF"><a href="#Memory-based（aka-neighborhood-based）方法：Item-based-User-based-CF" class="headerlink" title="Memory-based（aka neighborhood-based）方法：Item-based/User-based CF"></a>Memory-based（aka neighborhood-based）方法：Item-based/User-based CF</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image12.jpeg" alt="g12"></p>
+<p>其实在没有电商的时候，传统的线下店铺就是采用热度排行的方式来增加销量的，因为能展示给客户的商品有限，所以只能选最热门的商品放在店铺里。</p>
+<p>虽然这种做法可以避免新用户的冷启动窘境，因为我们不需要知道新用户是怎样的，只要知道大的趋势就可以了。但这样做对新的商品来说显然是致命的，因为热门的商品被展示得越多就越热门，长期占据热度榜，而新商品得不到被展示的机会，就只能烂在仓库里了。这个问题也被称为<strong>马太效应（The Matthew Effect）</strong>。</p>
+<p>比较有意思的是这里指出除了单纯地考虑热度，<strong>在基于热度排行时还可以综合考虑一些其它因素</strong>。事实上，即使是如此强调个性化的今天，热度依然是影响用户做出购买决定的一个很重要的因素，所以在构建推荐系统时也要充分考虑到这一点。</p>
+<h3 id="协同过滤（Collaborative-Filtering）"><a href="#协同过滤（Collaborative-Filtering）" class="headerlink" title="协同过滤（Collaborative Filtering）"></a>协同过滤（Collaborative Filtering）</h3><h4 id="Memory-based-方法"><a href="#Memory-based-方法" class="headerlink" title="Memory-based 方法"></a>Memory-based 方法</h4><p>Memory-based 方法又可以称为 <strong>neighborhood-based方法</strong>。可以简单分为User-based CF和Item-based CF两种思路。</p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image11.jpeg" alt="g11"></p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image12.jpeg" alt="g12"></p>
+<p>注意一下Step3过滤这个步骤，比方说用户已经买过某一本书，如果再推荐他重复购买是不合理的。但是，对于一些可能会周期性购买的物品（如抽纸、沐浴露etc），我们要怎么处理呢？</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image13.jpeg" alt="g13"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image14.jpeg" alt="g14"></p>
+<p>可以说各有各好处吧，Item-based更流行除了准确性好之外，物品的变动相对用户较少也是一个很大的原因，这能够减少很多计算花费。但是相对地，Item-based可能没有办法很好地承担<strong>开拓用户的眼界</strong>这个功能，是不是真的这样呢？值得思考。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image15.jpeg" alt="g15"></p>
+<p>这里提到的缺点是需要注意的，但<strong>并不是说协同过滤就必定有这些缺点</strong>，我们可以针对这些缺点对协同过滤进行改良。这里记录一下一些简单的思路：</p>
+<ul>
+<li><p>冷启动问题怎么解决呢？是否可以引入一些领域知识？或者引入额外的数据来源（社交、地点、时间etc）呢？如果引入了，又该怎么使用呢？</p>
+</li>
+<li><p>过去的行为真的决定现在吗？过去的行为有哪些特征是可以视为用户的特征的呢？有哪些特征可能只是干扰因素呢？</p>
+</li>
+<li><p>怎么才能引入小众偏好，让推荐系统更强调个性化呢？</p>
+</li>
+</ul>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image16.jpeg" alt="g16"></p>
+<p>LSH是一个相当有意思的减少计算量的方法。协同过滤的一个最基本步骤就是计算相似性，而无论从用户的角度还是从物品的角度来看，维度都相当高，计算花费很大。而使用LSH进行映射后，既能保持相似关系不会发生太大的变化，又能降低维度，确实是一种很好的解决方案。不过<strong>要特别注意哈希函数的选择</strong>。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image17.jpeg" alt="g17"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image18.jpeg" alt="g18"></p>
-<h4 id="Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型"><a href="#Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型" class="headerlink" title="Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型"></a>Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型</h4><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image19.jpeg" alt="g19"></p>
+<h4 id="Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型"><a href="#Model-based方法：频繁项挖掘-聚类-分类-回归-矩阵分解-RBM-图模型" class="headerlink" title="Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型"></a>Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型</h4><p>基于模型的方法，用到的技术就比较多设计到机器学习领域了。</p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image19.jpeg" alt="g19"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image20.jpeg" alt="g20"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image21.jpeg" alt="g21"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image22.jpeg" alt="g22"></p>
@@ -107,7 +132,7 @@
 &lt;li&gt;&lt;a href=&quot;#传统的推荐算法&quot;&gt;传统的推荐算法&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#非个性化推荐：热度排行（popularity）&quot;&gt;非个性化推荐：热度排行（Popularity）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#协同过滤（collaborative-filtering）&quot;&gt;协同过滤（Collaborative Filtering）&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#memory-based（aka-neighborhood-based）方法：item-baseduser-based-cf&quot;&gt;Memory-based（aka neighborhood-based）方法：Item-based/User-based CF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#memory-based-方法&quot;&gt;Memory-based 方法&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#model-based方法：频繁项挖掘聚类分类回归矩阵分解rbm图模型&quot;&gt;Model-based方法：频繁项挖掘/聚类/分类/回归/矩阵分解/RBM/图模型&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
