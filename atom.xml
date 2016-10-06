@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-10-06T15:43:40.166Z</updated>
+  <updated>2016-10-06T15:46:35.947Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/"/>
     <id>http://2wildkids.com/2016/10/06/如何处理Hexo和MathJax的兼容问题/</id>
     <published>2016-10-06T14:09:31.000Z</published>
-    <updated>2016-10-06T15:43:40.166Z</updated>
+    <updated>2016-10-06T15:46:35.947Z</updated>
     
-    <content type="html"><![CDATA[<p>今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。</p>
+    <content type="html"><![CDATA[<p>今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。<strong>不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案</strong>。</p>
 <h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><p>先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$R_&#123;m \times n&#125; = U_&#123;m \times m&#125; S_&#123;m \times n&#125; V_&#123;n \times n&#125;&apos;$$</div></pre></td></tr></table></figure>
 <p>渲染出来却变成了（红框内变为了斜体）：</p>
@@ -67,7 +67,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。&lt;/p&gt;
+      &lt;p&gt;今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。&lt;strong&gt;不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案&lt;/strong&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;问题重现&quot;&gt;&lt;a href=&quot;#问题重现&quot; class=&quot;headerlink&quot; title=&quot;问题重现&quot;&gt;&lt;/a&gt;问题重现&lt;/h2&gt;&lt;p&gt;先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \times m&amp;#125; S_&amp;#123;m \times n&amp;#125; V_&amp;#123;n \times n&amp;#125;&amp;apos;$$&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;渲染出来却变成了（红框内变为了斜体）：&lt;/p&gt;
