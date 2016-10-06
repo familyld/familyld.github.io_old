@@ -83,8 +83,14 @@
 <p>Mark一下这里产生悖论的原因：<strong>数据的不同分组之间基数差异很大</strong>，导致合并时产生了偏差。用上面的例子来说就是对顾客分组是，在职人员的数量要远多于大学生的数量，在把这两个分组合并为顾客来考虑时就会产生偏差。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image23.jpeg" alt="g23"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image24.jpeg" alt="g24"></p>
+<p>事实上，我们并不一定要在同一个簇里面找推荐物品的候选集，完全可以基于簇之间来使用KNN，这样做就有一定概率引入一些额外的物品，给用户带来惊喜了。当然，如果平衡好这一点和推荐的准确性是需要研究的。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image25.jpeg" alt="g25"></p>
+<p>比方说把推荐看作一个二分类问题，预测用户是否购买/点击；把推荐看作一个回归问题，预测用户对推荐物品的评分。这样来看的话，很多有监督学习的机器学习技术都能被用上了，但是如何获得大量的独立同分布的训练数据是一个很大的问题。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image26.jpeg" alt="g26"></p>
+<ul>
+<li>如何应对评分矩阵的稀疏性？ —— 现实问题</li>
+<li>如何降低大规模矩阵计算的时间开销？ —— 决定能否满足实时性的需求</li>
+</ul>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image27.jpeg" alt="g27"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image28.jpeg" alt="g28"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image29.jpeg" alt="g29"></p>
