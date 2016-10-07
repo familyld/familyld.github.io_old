@@ -150,7 +150,7 @@
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image47.jpeg">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image48.jpeg">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image49.jpeg">
-<meta property="og:updated_time" content="2016-10-06T14:03:03.724Z">
+<meta property="og:updated_time" content="2016-10-07T04:16:51.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用推荐算法">
 <meta name="twitter:description" content="这篇文章首发在【阿里技术】这个微信公众号，内容上主要围绕电商中用到的一些推荐算法，参考了 Xavier Amatriain 在CMU的 Machine Learning 暑期学校上的讲授的内容。不仅有提到一些基础的推荐算法，也讲了一些推荐系统领域比较新的研究方向，个人认为是一篇不错的概括性文章，摘录在博客里，加入一点自己的理解。
@@ -189,6 +189,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-85340836-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -488,11 +497,13 @@
 <p>比方说把推荐看作一个二分类问题，预测用户是否购买/点击；把推荐看作一个回归问题，预测用户对推荐物品的评分。这样来看的话，很多有监督学习的机器学习技术都能被用上了。但是，如何获得大量独立同分布的训练数据会是一个很大的问题。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image26.jpeg" alt="g26"></p>
 <ul>
-<li>如何应对评分矩阵的稀疏性？ —— 现实问题，用户接触到的商品仅占非常小的一部分，会反馈评分的就更少了</li>
+<li>如何应对评分矩阵的稀疏性？ —— 现实问题，用户接触到的商品仅占非常小的一部分，会进行反馈的就更少了</li>
 <li>如何降低大规模矩阵计算的时间开销？ —— 决定能否满足实时性的需求</li>
 </ul>
-<p>图片中的两条式子可能有些模糊，它们是：</p>
-<script type="math/tex; mode=display">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}'</script><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image27.jpeg" alt="g27"></p>
+<p>图片中的两条式子可能有些模糊，它们分别是是：</p>
+<script type="math/tex; mode=display">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}' \qquad(1)</script><p>和</p>
+<script type="math/tex; mode=display">R_{m \times n} \approx U_{m \times k} S_{k \times k} V_{k \times n}' \qquad(2)</script><p>式（1）是标准的SVD矩阵分解，式（2）则是<strong>利用SVD技术进行低阶近似</strong>，也称为<strong>截断SVD（Truncated SVD）</strong>，它只取最大的k个奇异值，而k要远小于原矩阵的行数m和列数n，因此能够大大地降低计算开销。由于篇幅原因，这里就不科普SVD相关的知识了，详细内容可以check一下<a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" target="_blank" rel="external">维基百科里对SVD的描述</a>。</p>
+<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image27.jpeg" alt="g27"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image28.jpeg" alt="g28"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image29.jpeg" alt="g29"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image30.jpeg" alt="g30"></p>
