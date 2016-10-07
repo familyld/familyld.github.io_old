@@ -89,7 +89,7 @@
     <link href="http://2wildkids.com/2016/10/04/%E5%B8%B8%E7%94%A8%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/"/>
     <id>http://2wildkids.com/2016/10/04/常用推荐算法/</id>
     <published>2016-10-04T13:38:05.000Z</published>
-    <updated>2016-10-07T04:16:51.567Z</updated>
+    <updated>2016-10-07T09:03:16.302Z</updated>
     
     <content type="html"><![CDATA[<p>这篇<a href="http://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&amp;mid=2247483811&amp;idx=1&amp;sn=fc3ee4ddfc4a8d6014a4cd90cdb5983c&amp;scene=4#wechat_redirect" target="_blank" rel="external">文章</a>首发在【阿里技术】这个微信公众号，内容上主要围绕电商中用到的一些推荐算法，参考了 Xavier Amatriain 在CMU的 Machine Learning 暑期学校上的讲授的内容。不仅有提到一些基础的推荐算法，也讲了一些推荐系统领域比较新的研究方向，个人认为是一篇不错的概括性文章，摘录在博客里，加入一点自己的理解。</p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><!-- MarkdownTOC -->
@@ -97,11 +97,7 @@
 <li><a href="#推荐系统简介">推荐系统简介</a></li>
 <li><a href="#传统的推荐算法">传统的推荐算法</a><ul>
 <li><a href="#非个性化推荐：热度排行（popularity）">非个性化推荐：热度排行（Popularity）</a></li>
-<li><a href="#协同过滤（collaborative-filtering）">协同过滤（Collaborative Filtering）</a><ul>
-<li><a href="#memory-based-方法">Memory-based 方法</a></li>
-<li><a href="#model-based方法">Model-based方法</a></li>
-</ul>
-</li>
+<li><a href="#协同过滤（collaborative-filtering）">协同过滤（Collaborative Filtering）</a></li>
 <li><a href="#基于内容知识的推荐（content-basedknowledge-based）">基于内容/知识的推荐（Content-based/Knowledge-based）</a></li>
 <li><a href="#混合方法（hybird-approaches）">混合方法（Hybird Approaches）</a></li>
 </ul>
@@ -160,16 +156,16 @@
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image18.jpeg" alt="g18"></p>
 <h4 id="Model-based方法"><a href="#Model-based方法" class="headerlink" title="Model-based方法"></a>Model-based方法</h4><p>基于模型的方法，用到的技术就比较多涉及到机器学习领域了。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image19.jpeg" alt="g19"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image20.jpeg" alt="g20"></p>
+<h5 id="关联规则挖掘"><a href="#关联规则挖掘" class="headerlink" title="关联规则挖掘"></a>关联规则挖掘</h5><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image20.jpeg" alt="g20"></p>
 <p>关联规则挖掘其实跟买东西的场景是非常搭的，有兴趣的朋友不妨查查 “啤酒与尿布” 这个经典案例。</p>
 <p>值得注意的是：我们<strong>从结果反推出的 “现象” 并不一定是事实</strong>，这其中有可能存在巧合的因素，所以我们一定要慎重地对待。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image21.jpeg" alt="g21"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image22.jpeg" alt="g22"></p>
 <p>Mark一下这里产生悖论的原因：<strong>数据的不同分组之间基数差异很大</strong>，导致合并时产生了偏差。用上面的例子来说就是对顾客分组是，在职人员的数量要远多于大学生的数量，在把这两个分组合并为顾客来考虑时就会产生偏差。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image23.jpeg" alt="g23"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image24.jpeg" alt="g24"></p>
+<h5 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h5><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image24.jpeg" alt="g24"></p>
 <p>事实上，我们并不一定要在同一个簇里面找推荐物品的候选集，完全可以基于簇之间来使用KNN，把最近邻的簇对应的物品集作为候选，这样做就有一定概率引入一些额外的物品，给用户带来惊喜了。当然，如何平衡好这一点和推荐的准确性是需要研究的。</p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image25.jpeg" alt="g25"></p>
+<h5 id="SVD"><a href="#SVD" class="headerlink" title="SVD"></a>SVD</h5><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image25.jpeg" alt="g25"></p>
 <p>比方说把推荐看作一个二分类问题，预测用户是否购买/点击；把推荐看作一个回归问题，预测用户对推荐物品的评分。这样来看的话，很多有监督学习的机器学习技术都能被用上了。但是，如何获得大量独立同分布的训练数据会是一个很大的问题。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image26.jpeg" alt="g26"></p>
 <ul>
@@ -180,14 +176,21 @@
 <script type="math/tex; mode=display">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}' \qquad(1)</script><p>和</p>
 <script type="math/tex; mode=display">R_{m \times n} \approx U_{m \times k} S_{k \times k} V_{k \times n}' \qquad(2)</script><p>式（1）是标准的SVD矩阵分解，式（2）则是<strong>利用SVD技术进行低阶近似</strong>，也称为<strong>截断SVD（Truncated SVD）</strong>，它只取最大的k个奇异值，而k要远小于原矩阵的行数m和列数n，因此能够大大地降低计算开销。由于篇幅原因，这里就不科普SVD相关的知识了，详细内容可以check一下<a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" target="_blank" rel="external">维基百科里对SVD的描述</a>。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image27.jpeg" alt="g27"></p>
+<p>Funk提出的这种矩阵分解算法在很大程度上弥补了标准SVD的不足，它不需要关注缺失值，而且计算复杂度也降低了很多。这种矩阵分解方法后来被Netflix Prize的冠军Koren称为<strong>Latent Factor Model（简称LFM）</strong>，也即后来大名鼎鼎的<strong>隐语义模型</strong>。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image28.jpeg" alt="g28"></p>
+<p>加入偏置项是一种很直觉的想法，举一个简单的例子，对商品要求较高的用户通常会给出较低的评分，所以在满意程度同等时，他给出的评分可能比其他用户都要低。如果我们不排除这个影响的话，他的评分就会错误地拉低了商品的评价。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image29.jpeg" alt="g29"></p>
+<p>更进一步地，我们还可以考虑用户的历史行为对评分的影响。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image30.jpeg" alt="g30"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image31.jpeg" alt="g31"></p>
+<p>向量化可以理解为对原事物表现形式的改变，不仅仅用于推荐系统领域，也是很多其他研究领域的基础。比方说自然语言处理，要理解对话，就先就要把对话的句子进行向量化，将句子分解为不同的单词，每个单词对应一个维度（最近Google翻译已经改进为以句子为单元了，使得翻译更加准确，不过由于我没有进行过自然语言处理相关的研究，所以不太清楚具体的情况）。</p>
+<h5 id="RBM"><a href="#RBM" class="headerlink" title="RBM"></a>RBM</h5><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image31.jpeg" alt="g31"></p>
+<p>Boltzmann机是全连接的一个网络，参数相当多，即使去除同同一层内的连接，变为RBM，参数依然很多。参数越多，自然拟合的能力就越强，所以RBM可以说是浅层学习（相对于深度学习的一个概念，毕竟RBM就只有两层神经元）中非常强大的一个模型。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image32.jpeg" alt="g32"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image33.jpeg" alt="g33"></p>
+<p>Mark一下，<strong>一个用户一个RBM</strong>，也即为每个用户都训练一个RBM模型，这样开销固然很大，但私以为这样做要比协同过滤更加符合<strong>个性化</strong>的需求。除了开销大之外，这种方法还需要海量的训练数据，否则无法得到可以接受的结果。</p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image34.jpeg" alt="g34"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image35.jpeg" alt="g35"></p>
+<p>自从深度学习火了之后，越来越多的研究者开始对其进行研究。在推荐系统领域也不例外，虽然RBM并不算“深”，但是可以帮助我们理解深度学习技术是如何应用到推荐系统领域的。我个人还不是太过了解深度学习，上面的PPT也不是讲得讲得很清楚（在推荐系统问题中应用的RBM是改良过的）。感兴趣的朋友不妨阅读一下腾讯数字音乐部智能推荐组编写的文章——<strong><a href="http://mp.weixin.qq.com/s?__biz=MzA3MDQ4MzQzMg==&amp;mid=417547354&amp;idx=1&amp;sn=1cda80702cff4f9d0f739f75d30eb773" target="_blank" rel="external">解密深度学习在智能推荐系统的实践与应用</a></strong>。</p>
+<h5 id="图模型"><a href="#图模型" class="headerlink" title="图模型"></a>图模型</h5><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image35.jpeg" alt="g35"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image36.jpeg" alt="g36"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image37.jpeg" alt="g37"></p>
 <h3 id="基于内容-知识的推荐（Content-based-Knowledge-based）"><a href="#基于内容-知识的推荐（Content-based-Knowledge-based）" class="headerlink" title="基于内容/知识的推荐（Content-based/Knowledge-based）"></a>基于内容/知识的推荐（Content-based/Knowledge-based）</h3><p><img src="http://oe0e8k1nf.bkt.clouddn.com/RecAlgorithm/image38.jpeg" alt="g38"></p>
@@ -212,11 +215,7 @@
 &lt;li&gt;&lt;a href=&quot;#推荐系统简介&quot;&gt;推荐系统简介&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#传统的推荐算法&quot;&gt;传统的推荐算法&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#非个性化推荐：热度排行（popularity）&quot;&gt;非个性化推荐：热度排行（Popularity）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#协同过滤（collaborative-filtering）&quot;&gt;协同过滤（Collaborative Filtering）&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#memory-based-方法&quot;&gt;Memory-based 方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#model-based方法&quot;&gt;Model-based方法&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#协同过滤（collaborative-filtering）&quot;&gt;协同过滤（Collaborative Filtering）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#基于内容知识的推荐（content-basedknowledge-based）&quot;&gt;基于内容/知识的推荐（Content-based/Knowledge-based）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#混合方法（hybird-approaches）&quot;&gt;混合方法（Hybird Approaches）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
