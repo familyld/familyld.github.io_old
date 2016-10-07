@@ -86,25 +86,25 @@
 
 
 
-<meta name="description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。
+<meta name="description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友也可以跳到文章末尾直接看解决方案（Jump to the end to see sulution）。
 问题重现先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：
-1$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \">
+1$$R_&amp;#123;m \time">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何处理Hexo和MathJax的兼容问题">
 <meta property="og:url" content="http://2wildkids.com/2016/10/06/如何处理Hexo和MathJax的兼容问题/index.html">
 <meta property="og:site_name" content="林肯先生的Blog">
-<meta property="og:description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。
+<meta property="og:description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友也可以跳到文章末尾直接看解决方案（Jump to the end to see sulution）。
 问题重现先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：
-1$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \">
+1$$R_&amp;#123;m \time">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer1.png">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer2.png">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/After_Change_Markdown_Renderer1.png">
-<meta property="og:updated_time" content="2016-10-06T15:46:35.947Z">
+<meta property="og:updated_time" content="2016-10-07T02:11:46.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何处理Hexo和MathJax的兼容问题">
-<meta name="twitter:description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案。
+<meta name="twitter:description" content="今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。不想看解决思路的朋友也可以跳到文章末尾直接看解决方案（Jump to the end to see sulution）。
 问题重现先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：
-1$$R_&amp;#123;m \times n&amp;#125; = U_&amp;#123;m \">
+1$$R_&amp;#123;m \time">
 <meta name="twitter:image" content="http://oe0e8k1nf.bkt.clouddn.com/Before_Change_Markdown_Renderer1.png">
 
 
@@ -352,7 +352,7 @@
       
 
       
-        <p>今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。<strong>不想看解决思路的朋友可以点击快速导航中的小结，跳到文章末尾直接看解决方案</strong>。</p>
+        <p>今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。<strong>不想看解决思路的朋友也可以<a href="http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/#小结">跳到文章末尾直接看解决方案（Jump to the end to see sulution）</a></strong>。</p>
 <h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><p>先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$R_&#123;m \times n&#125; = U_&#123;m \times m&#125; S_&#123;m \times n&#125; V_&#123;n \times n&#125;&apos;$$</div></pre></td></tr></table></figure>
 <p>渲染出来却变成了（红框内变为了斜体）：</p>
@@ -382,13 +382,13 @@
 </ol>
 <p>这下，不仅能正常使用TOC，也能完美地支持MathJax渲染了。至此，问题得到了解决。</p>
 <p>P.S. 其实，这个问题就是因为Markdown渲染和MathJax渲染冲突造成的，除了换别的渲染器，<strong>直接修改渲染用的正则表达式</strong>也是一种解决思路，但是这个思路有一定风险，如果引起了别的bug而没有及时发现，自己又没有做好备份和记录，就需要浪费很多额外的时间来定位问题。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>简单来说，要让你的Hexo支持MathJax渲染公式，你只需要使用两条命令：</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>简单来说，要让你的Hexo支持MathJax渲染公式，你只需要使用两条命令：<br>To fully support MathJax in your Hexo blog, you can simply use the following commands:</p>
 <ol>
 <li><code>npm uninstall hexo-renderer-marked --save</code></li>
 <li><code>npm install hexo-renderer-kramed --save</code></li>
 </ol>
-<p>第一条命令用于卸载 hexo-renderer-marked（注意，如果你使用了其他的渲染插件，请卸载对应的插件），它是hexo自带的Markdown渲染引擎。</p>
-<p>第二条命令用于安装 hexo-renderer-kramed 插件，这个渲染插件针对MathJax支持进行了改进。安装完成后，重新生成博客就会惊喜地发现你的公式已经能够正常显示了。</p>
+<p>第一条命令用于卸载 hexo-renderer-marked（注意，如果你使用了其他的渲染插件，请卸载对应的插件），它是hexo自带的Markdown渲染引擎。<br>The first command uninstall Hexo’s default Markdown renderer.</p>
+<p>第二条命令用于安装 hexo-renderer-kramed 插件，这个渲染插件针对MathJax支持进行了改进。安装完成后，重新生成博客就会惊喜地发现你的公式已经能够正常显示了。<br>The second command install new Markdown renderer which can support MathJax fully. After installation, you should regenerate your blog to see the changes.</p>
 <h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>作为一名编程人员，不屈服于bug，不妥协于简陋的solution是很重要的。除此之外，也要善于定位问题和解决问题，能够弄清楚出问题的地方，并且利用丰富的网络资源来解决问题。</p>
 <p>最后，感谢开源和分享。</p>
 <p>最后的最后，再码一条写在SVM笔记里的长公式检验一下吧：</p>
