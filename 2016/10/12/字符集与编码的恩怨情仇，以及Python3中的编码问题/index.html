@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="编码,Python," />
 
 
 
@@ -86,12 +86,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="林肯先生的Blog">
-<meta property="og:url" content="http://2wildkids.com/tags/推荐系统/index.html">
+<meta name="description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找资料后总算是弄明白了，也就整理成了这一篇文章。
+编码问题一直都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作时，没有统一好编码就会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符集与编码的恩怨情仇，以及Python3中的编码问题">
+<meta property="og:url" content="http://2wildkids.com/2016/10/12/字符集与编码的恩怨情仇，以及Python3中的编码问题/index.html">
 <meta property="og:site_name" content="林肯先生的Blog">
+<meta property="og:description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找资料后总算是弄明白了，也就整理成了这一篇文章。
+编码问题一直都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作时，没有统一好编码就会">
+<meta property="og:updated_time" content="2016-10-12T11:19:35.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林肯先生的Blog">
+<meta name="twitter:title" content="字符集与编码的恩怨情仇，以及Python3中的编码问题">
+<meta name="twitter:description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找资料后总算是弄明白了，也就整理成了这一篇文章。
+编码问题一直都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作时，没有统一好编码就会">
 
 
 
@@ -112,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://2wildkids.com/tags/推荐系统/"/>
+  <link rel="canonical" href="http://2wildkids.com/2016/10/12/字符集与编码的恩怨情仇，以及Python3中的编码问题/"/>
 
-  <title> 标签: 推荐系统 | 林肯先生的Blog </title>
+  <title> 字符集与编码的恩怨情仇，以及Python3中的编码问题 | 林肯先生的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +161,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,46 +272,187 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        推荐系统
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                字符集与编码的恩怨情仇，以及Python3中的编码问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-12T16:20:20+08:00" content="2016-10-12">
+              2016-10-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/12/字符集与编码的恩怨情仇，以及Python3中的编码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/字符集与编码的恩怨情仇，以及Python3中的编码问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><span> PV:&nbsp</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>Hits
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找资料后总算是弄明白了，也就整理成了这一篇文章。</p>
+<p>编码问题一直都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作时，没有统一好编码就会造成很大的问题，特别是对于来自不同国家使用不同语言的程序员来说。因此，统一编码是非常重要的，也就有了Unicode的出现。</p>
+<p>下文将通过以下顺序进行讲解：</p>
+<!-- MarkdownTOC -->
+<ul>
+<li><a href="#编码的历史">编码的历史</a></li>
+<li><a href="#字符集与编码">字符集与编码</a></li>
+<li><a href="#带bom和不带bom">带BOM和不带BOM</a></li>
+<li><a href="#python3中的编码问题">Python3中的编码问题</a></li>
+<li><a href="#参考与感谢">参考与感谢</a></li>
+</ul>
+<!-- /MarkdownTOC -->
+<a id="more"></a>
+<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><h2 id="字符集与编码"><a href="#字符集与编码" class="headerlink" title="字符集与编码"></a>字符集与编码</h2><h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><h2 id="Python3中的编码问题"><a href="#Python3中的编码问题" class="headerlink" title="Python3中的编码问题"></a>Python3中的编码问题</h2><p>其实最早的时候，由于各地区使用的编码方式不同，使用不同语言的人交流就成了一个大问题。国际标准组织ISO制订了统一的<strong>通用字符集（Universal Character Set，UCS）</strong>，也<strong>简称为Unicode</strong>。<strong>目前实际应用的Unicode版本对应于UCS-2编码方式</strong>，使用16位的编码空间。也就是每个字符占用2个字节。这样理论上一共最多可以表示 2^16 也即 65536 个字符，基本满足各种语言的使用。</p>
+<p>Unicode的<strong>实现方式不同于编码方式</strong>。一个字符的Unicode编码是确定的。但是在实际传输过程中，由于不同系统平台的设计不一定一致，以及出于节省空间的目的，对<strong>Unicode编码的实现方式有所不同</strong>。<strong>Unicode的实现方式称为Unicode转换格式（Unicode Transformation Format，简称为UTF）</strong>。</p>
+<p>例如，如果一个仅包含ASCII字符(只需要7位)的Unicode文件，如果每个字符都使用2字节的<strong>原Unicode编码</strong>传输，其第一字节的首位始终为0。这就造成了比较大的浪费。对于这种情况，可以使用<strong>UTF-8编码，这是一种变长编码，它将ASCII字符仍用7位编码表示，占用一个字节（首位补0）</strong>。而遇到与其他Unicode字符混合的情况，将按一定算法转换，每个字符使用1-3个字节编码，并利用首位为0或1进行识别。这样对以ASCII字符为主的西文文档就大大节省了编码长度。</p>
+<p>但是，<strong>现在所说的Unicode一般都指的是字符集而非编码方式</strong>，廖雪峰老师在教程里提到的Unicode编码实际上指的是UCS-2这种编码方式。又因为以前UCS-2和UTF-16是等价的，所以微软的文档习惯把UTF16称为Unicode，这也导致很多开发者容易对此产生误会。</p>
+<h2 id="参考与感谢"><a href="#参考与感谢" class="headerlink" title="参考与感谢"></a>参考与感谢</h2>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/10/04/常用推荐算法/" itemprop="url">
-              
-                <span itemprop="name">常用推荐算法</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oe0e8k1nf.bkt.clouddn.com/wechat-pay.png" alt="林肯先生 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-04T21:38:05+08:00"
-              content="2016-10-04" >
-          10-04
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编码/" rel="tag">#编码</a>
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/06/如何处理Hexo和MathJax的兼容问题/" rel="next" title="如何处理Hexo和MathJax的兼容问题">
+                <i class="fa fa-chevron-left"></i> 如何处理Hexo和MathJax的兼容问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -312,6 +460,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/12/字符集与编码的恩怨情仇，以及Python3中的编码问题/"
+           data-title="字符集与编码的恩怨情仇，以及Python3中的编码问题" data-url="http://2wildkids.com/2016/10/12/字符集与编码的恩怨情仇，以及Python3中的编码问题/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -331,8 +487,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oe0e8k1nf.bkt.clouddn.com/avator-lion.jpg"
@@ -409,6 +574,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码的历史"><span class="nav-number">1.</span> <span class="nav-text">编码的历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符集与编码"><span class="nav-number">2.</span> <span class="nav-text">字符集与编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带BOM和不带BOM"><span class="nav-number">3.</span> <span class="nav-text">带BOM和不带BOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3中的编码问题"><span class="nav-number">4.</span> <span class="nav-text">Python3中的编码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考与感谢"><span class="nav-number">5.</span> <span class="nav-text">参考与感谢</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -528,6 +704,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
