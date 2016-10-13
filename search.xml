@@ -11,7 +11,7 @@
 <p>下文将通过以下顺序进行讲解：<br><!-- MarkdownTOC --></p>
 <ul>
 <li><a href="#编码的历史">编码的历史</a></li>
-<li><a href="#字符集与编码方式">字符集与编码方式</a></li>
+<li><a href="#标准、字符集、编码方式">标准、字符集、编码方式</a></li>
 <li><a href="#带bom和不带bom">带BOM和不带BOM</a></li>
 <li><a href="#python3中的编码问题">Python3中的编码问题</a></li>
 <li><a href="#参考与感谢">参考与感谢</a></li>
@@ -20,12 +20,18 @@
 <a id="more"></a>
 <h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><p>首先需要理解一下<strong>为什么要进行编码</strong>。我们知道，对计算机而言，一切信息都不过是01比特串，不同的01组合成不同的比特串从而可以表示不同的信息。但是，对人类来说，我们阅读写作所用的是自然语言，于是就存在着<strong>如何使用01比特串来表示自然语言</strong>这样一个问题。</p>
 <p>在计算机中，8个比特（bit）组成1个字节（byte），可以表示256种不同状态。在最早的时候，计算机使用者用的都是英语，于是美国人就设计了<strong>ASCII编码（American Standard Code for Information Interchange，美国信息互换标准代码）</strong>，它包含了大小写英文，数字，控制码以及其它一些符号。大写A编码为65，小写a编码为97。字符0编码为48。使用8个比特(也即1个字节)，可表示128个不同字符(最高位留出，用于校验)。这样计算机就能使用不同的字节来表示英文了，显示时GUI工具或者字体渲染器只需要根据字节来显示相应的字母就可以了。</p>
-<p>后来随着计算机技术的发展，各个国家都开始使用计算机了，但并不是每个国家都使用英语呀。中华文化博大精深，光是常用汉字就有6000多个，显然处理中文时一个字节是不足够的，至少要用两个字节，并且不能与ASCII冲突，因此就有了中国自己制定的<strong>GB2312编码</strong>（每个字符两字节）。后来由于中文字实在太多了，然后还有一些少数民族使用的文字，于是又相继推出了GBK标准和GB18030标准。</p>
-<p>日本和韩国也不例外，日本制定了<strong>Shift_JIS编码</strong>，韩国制定了<strong>Euc-kr编码</strong>。还有很多使用其他语言的国家/地区也纷纷制定了适合自己语言的编码标准。</p>
-<p>但是，各个国家都用自己不同的标准和编码，在多语言的环境下就很容易产生冲突，产生乱码。国际标准组织ISO看不下去了，就制定了一套统一的标准：<strong>通用字符集（Universal Character Set，UCS）</strong>，后来发展为俗称的<strong>Unicode</strong>，将所有语言文字统一到一套编码中。</p>
-<h2 id="字符集与编码方式"><a href="#字符集与编码方式" class="headerlink" title="字符集与编码方式"></a>字符集与编码方式</h2><p>在查找相关资料的过程中，我发现<strong>字符集和编码这两个概念相当容易被混淆</strong>，甚至不少资深程序员也会说混。在廖雪峰老师的Python3教程中，他所说的Unicode指的是一种编码方式，而现在我们讨论Unicode的时候，一般是指通用字符集，它有多种编码方式，如UTF-8、UTF-16和UTF-32。那是不是廖雪峰老师所说的是错误的呢？<strong>XXX标准、XXX字符集、XXX编码到底有什么区别呢？</strong></p>
-<p>对于 ASCII、GB 2312、Big5、GBK、GB 18030 之类的遗留方案来说，基本上一个字符集方案只使用一种编码方案。<br>比如 ASCII 这部标准本身就直接规定了字符和字符编码的方式，所以既是字符集又是编码方案；而 GB 2312 只是一个区位码形式的字符集标准，不过实际上基本都用 EUC-CN 来编码，所以提及「GB 2312」时也说的是一个字符集和编码连锁的方案；GBK 和 GB 18030 等向后兼容于 GB 2312 的方案也类似。<br>于是，很多人受这些遗留方案的影响而无法理解字符集和编码的关系。</p>
-<p>对于 Unicode，字符集和编码是明确区分的。Unicode/UCS 标准首先是个统一的字符集标准。而 Unicode/UCS 标准同时也定义了几种可选的编码方案，在标准文档中称作「encoding form」，主要包括 UTF-8、UTF-16 和 UTF-32。<br>所以，对 Unicode 方案来说，同样的基于 Unicode 字符集的文本可以用多种编码来存储、传输。<br>所以，用「Unicode」来称呼一个编码方案不合适，并且误导。</p>
+<p>后来随着计算机技术的发展，各个国家都开始使用计算机了，但并不是每个国家都使用英语呀。中华文化博大精深，光是常用汉字就有6000多个，显然处理中文时一个字节是不足够的，至少要用两个字节，并且不能与ASCII冲突，因此就有了中国自己制定的<strong>GB2312标准</strong>（每个字符两字节）。后来由于中文字实在太多了，然后还有一些少数民族使用的文字，于是又相继推出了GBK标准和GB18030标准。</p>
+<p>日本和韩国也不例外，日本制定了<strong>Shift_JIS标准</strong>，韩国制定了<strong>Euc-kr标准</strong>。还有很多使用其他语言的国家/地区也纷纷制定了适合自己语言的编码标准。</p>
+<p>但是，各个国家都用自己不同的标准和编码，在多语言的环境下就很容易产生冲突，产生乱码。国际标准组织ISO看不下去了，就制定了一套统一的标准：<strong>通用字符集（Universal Character Set，UCS）</strong>，后来发展为俗称的<strong>Unicode</strong>，将所有语言文字统一到一套标准中。</p>
+<h2 id="标准、字符集、编码方式"><a href="#标准、字符集、编码方式" class="headerlink" title="标准、字符集、编码方式"></a>标准、字符集、编码方式</h2><p>在查找相关资料的过程中，我发现<strong>标准、字符集、编码这几个概念相当容易被混淆</strong>，甚至不少资深程序员也会说混。在廖雪峰老师的Python3教程中，他所说的Unicode指的是一种编码方式，而现在我们讨论Unicode的时候，一般是指Unicode字符集，它有多种编码方式，如UTF-8、UTF-16和UTF-32。那是不是廖雪峰老师所说的是错误的呢？<strong>XXX标准、XXX字符集、XXX编码到底有什么区别呢？</strong></p>
+<p>首先呀，像前面一节说到的那样，根据需要会制定出不同的<strong>标准（standard）</strong>。有时候一套标准只定义了一个字符集，就称为字符集标准。但是一套标准里面也可能还涉及到实现该字符集的一种或多种编码方式。</p>
+<p><strong>字符集（character repertoire）</strong>是什么呢？它其实定义的是<strong>如何把字符表示为code points</strong>，这个code point通常是用十六进制表示的整数，比方说Unicode字符集中，使用4位十六进制数的code point <code>0061</code> 来表示小写字母 <code>a</code>。字符集里的每一条标识包括code point，对应的字符以及一个明确的字符名称：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">0061</span>    <span class="string">'a'</span>; LATIN SMALL LETTER A</div><div class="line"><span class="number">0062</span>    <span class="string">'b'</span>; LATIN SMALL LETTER B</div><div class="line"><span class="number">0063</span>    <span class="string">'c'</span>; LATIN SMALL LETTER C</div><div class="line">...</div><div class="line"><span class="number">007</span>B    <span class="string">'&#123;'</span>; LEFT CURLY BRACKET</div></pre></td></tr></table></figure>
+<p>接下来再说说最难说清楚的<strong>编码、编码方式（encoding form）、编码方案、实现方式、字符编码</strong>，这几个术语经常都会混用，甚至在同一篇文献中的不同地方也常常出现不同的称谓，但是我认为它们指的其实都是同一样东西。举个例子，Unicode标准定义了Unicode字符集，同时也定义了几种用于实现Unicode字符集的编码方式，包括UTF-8编码、UTF-16编码、UTF-32编码等等。在不同的文献中，我们可能会看到几种写法：UTF-8编码，UTF-8编码方式，UTF-8编码方案，UTF-8实现方式，UTF-8字符编码，它们都是一样的意思。</p>
+<p>那<strong>为什么有时候很难分清标准、字符集、编码方式这几个概念呢？</strong></p>
+<p>其实呀，对于 ASCII、GB2312、Big5、GBK、GB18030 之类的标准来说，基本上一个字符集只对应一种编码方式。比如 ASCII标准 本身就直接规定了 ASCII字符集 和 ASCII编码方式；而 GB2312标准 则是一套字符集标准，实际上用 EUC-CN 这一种编码方式来编码。GBK 和 GB18030 等也类似。</p>
+<p>又因为很多文献中，写作并不严谨，有时就会省略掉 “标准”、”字符集”、”编码”这样的后缀，只使用名称。在提及 ASCII 的时候，实际上指的既可以是 ASCII字符集 又可以是 ASCII码，还可以使 ASCII标准 这样一个整体；提及 GB2312 时，指的则是 GB2312字符集 和 EUC-CN编码方式 组合起来的整体。于是呀，很多人受到这些遗留标准的影响，以为字符集和编码方式是同一回事儿，而无法正确理解字符集和编码方式的关系。</p>
+<p>对于 Unicode标准 来说，字符集和编码方式是明确区分的。Unicode标准 首先是个统一的多语言字符集标准，同时也定义了几种可选的编码方式，主要包括 UTF-8、UTF-16 和 UTF-32。所以，对 Unicode 标准来说，同样基于 Unicode 字符集的文本可以用多种编码方式来存储和传输。<strong>说 Unicode 是一种编码方式是一种误导和不合时的说法。</strong></p>
 <h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><h2 id="Python3中的编码问题"><a href="#Python3中的编码问题" class="headerlink" title="Python3中的编码问题"></a>Python3中的编码问题</h2><p>其实最早的时候，由于各地区使用的编码方式不同，使用不同语言的人交流就成了一个大问题。国际标准组织ISO制订了统一的<strong>通用字符集（Universal Character Set，UCS）</strong>，也<strong>简称为Unicode</strong>。<strong>目前实际应用的Unicode版本对应于UCS-2编码方式</strong>，使用16位的编码空间。也就是每个字符占用2个字节。这样理论上一共最多可以表示 2^16 也即 65536 个字符，基本满足各种语言的使用。</p>
 <p>Unicode的<strong>实现方式不同于编码方式</strong>。一个字符的Unicode编码是确定的。但是在实际传输过程中，由于不同系统平台的设计不一定一致，以及出于节省空间的目的，对<strong>Unicode编码的实现方式有所不同</strong>。<strong>Unicode的实现方式称为Unicode转换格式（Unicode Transformation Format，简称为UTF）</strong>。</p>
 <p>例如，如果一个仅包含ASCII字符(只需要7位)的Unicode文件，如果每个字符都使用2字节的<strong>原Unicode编码</strong>传输，其第一字节的首位始终为0。这就造成了比较大的浪费。对于这种情况，可以使用<strong>UTF-8编码，这是一种变长编码，它将ASCII字符仍用7位编码表示，占用一个字节（首位补0）</strong>。而遇到与其他Unicode字符混合的情况，将按一定算法转换，每个字符使用1-3个字节编码，并利用首位为0或1进行识别。这样对以ASCII字符为主的西文文档就大大节省了编码长度。</p>
