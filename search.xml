@@ -6,12 +6,12 @@
     <entry>
       <title><![CDATA[字符集与编码的恩怨情仇]]></title>
       <url>http://2wildkids.com/2016/10/12/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81%E7%9A%84%E6%81%A9%E6%80%A8%E6%83%85%E4%BB%87/</url>
-      <content type="html"><![CDATA[<p>最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找资料后总算是弄明白了，也就整理成了这一篇文章。</p>
+      <content type="html"><![CDATA[<p>最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。</p>
 <p>编码问题一直以来都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作或者发布产品时，没有统一好编码就会造成很大的问题，特别是对于来自不同国家使用不同语言的工作人员/用户来说。因此，统一编码是非常重要的，也就有了Unicode的出现。</p>
 <p>下文将通过以下顺序进行讲解：<br><!-- MarkdownTOC --></p>
 <ul>
 <li><a href="#编码的历史">编码的历史</a></li>
-<li><a href="#标准、字符集、编码方式">标准、字符集、编码方式</a></li>
+<li><a href="#标准、字符集与编码">标准、字符集与编码</a></li>
 <li><a href="#带bom和不带bom">带BOM和不带BOM</a></li>
 <li><a href="#windows中的编码问题">Windows中的编码问题</a></li>
 <li><a href="#python3中的编码问题">Python3中的编码问题</a></li>
@@ -24,24 +24,22 @@
 <p>后来随着计算机技术的发展，各个国家都开始使用计算机了，但并不是每个国家都使用英语呀。中华文化博大精深，光是常用汉字就有6000多个，显然处理中文时一个字节是不足够的，至少要用两个字节，并且不能与ASCII冲突，因此就有了中国自己制定的<strong>GB2312标准</strong>（每个字符两字节）。后来由于中文字实在太多了，然后还有一些少数民族使用的文字，于是又相继推出了GBK标准和GB18030标准。</p>
 <p>日本和韩国也不例外，日本制定了<strong>Shift_JIS标准</strong>，韩国制定了<strong>Euc-kr标准</strong>。还有很多使用其他语言的国家/地区也纷纷制定了适合自己语言的编码标准。</p>
 <p>但是，各个国家都用自己不同的标准和编码，在多语言的环境下就很容易产生冲突，产生乱码。国际标准组织ISO看不下去了，就制定了一套统一的标准：<strong>通用字符集（Universal Character Set，UCS）</strong>，后来发展为俗称的<strong>Unicode标准</strong>，将多种语言文字统一到一套标准中。</p>
-<h2 id="标准、字符集、编码方式"><a href="#标准、字符集、编码方式" class="headerlink" title="标准、字符集、编码方式"></a>标准、字符集、编码方式</h2><p>在查找相关资料的过程中，我发现<strong>标准、字符集、编码这几个概念相当容易被混淆</strong>，甚至不少资深程序员也会说混。在廖雪峰老师的Python3教程中，他所说的Unicode指的是一种编码方式，而现在我们讨论Unicode的时候，一般是指Unicode字符集，它有多种编码方式，如UTF-8、UTF-16和UTF-32。那是不是廖雪峰老师所说的是错误的呢？<strong>XXX标准、XXX字符集、XXX编码到底有什么区别呢？</strong></p>
-<p>首先呀，像前面一节说到的那样，根据需要会制定出不同的<strong>标准（standard）</strong>。有时候一套标准只涉及到字符集，就称为字符集标准。但是一套标准里面还可能涉及到实现该字符集的一种或多种编码方式以及其它一些细节。</p>
-<p><strong>字符集（character set）</strong>是什么呢？更准确的说，这里说的字符集应该称为<strong>编码字符集coded character set (CCS)</strong>。它定义的是<strong>字符和code point的映射关系</strong>，code point通常是用十六进制表示的整数，比方说Unicode字符集中，使用4位十六进制数的code point <code>0061</code>（十进制的97） 来表示小写字母 <code>a</code>。字符集里的每一条标识包括code point，对应的字符以及一个明确的字符名称：</p>
+<h2 id="标准、字符集与编码"><a href="#标准、字符集与编码" class="headerlink" title="标准、字符集与编码"></a>标准、字符集与编码</h2><p>在查找相关资料的过程中，我发现<strong>标准、字符集、编码这几个概念相当容易被混淆</strong>，甚至不少资深程序员也会说混。在廖雪峰老师的Python3教程中，他所说的Unicode指的是一种编码，而现在我们讨论Unicode的时候，一般是指Unicode字符集，它有多种编码，如UTF-8、UTF-16和UTF-32。那是不是廖雪峰老师所说的是错误的呢？<strong>XXX标准、XXX字符集、XXX编码到底有什么区别呢？</strong></p>
+<p>首先呀，像前面一节说到的那样，根据需要会制定出不同的<strong>标准（standard）</strong>。有时候一套标准只涉及到字符集，就称为字符集标准。但是一套标准里面还可能涉及到实现该字符集的一种或多种编码以及其它一些细节。</p>
+<p><strong>字符集（character set）</strong>是什么呢？更准确的说，应该称其为<strong>编码字符集coded character set (CCS)</strong>。它定义的是<strong>字符和code point的映射关系</strong>，code point通常是用十六进制表示的整数，比方说Unicode字符集中，使用4位十六进制数的code point <code>0061</code>（十进制的97） 来表示小写字母 <code>a</code>。字符集里的每一条标识包括code point，对应的字符以及一个明确的字符名称：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">0061</span>    <span class="string">'a'</span>; LATIN SMALL LETTER A</div><div class="line"><span class="number">0062</span>    <span class="string">'b'</span>; LATIN SMALL LETTER B</div><div class="line"><span class="number">0063</span>    <span class="string">'c'</span>; LATIN SMALL LETTER C</div><div class="line">...</div><div class="line"><span class="number">007</span>B    <span class="string">'&#123;'</span>; LEFT CURLY BRACKET</div></pre></td></tr></table></figure>
-<p>接下来再说说最难说清楚的<strong>编码方式（encoding form）、编码方案、实现方式、字符编码</strong>，这几个术语经常都会混用，甚至在同一篇文献中的不同地方也常常出现不同的称谓，但是我认为它们指的其实都是同一样东西。举个例子，Unicode标准定义了Unicode字符集，同时也定义了几种用于实现Unicode字符集的编码方式，包括UTF-8编码、UTF-16编码、UTF-32编码等等。在不同的文献中，我们可能会看到几种写法：UTF-8编码方式，UTF-8编码方案，UTF-8实现方式，UTF-8字符编码，它们都是一样的意思。</p>
-<p>那<strong>为什么有时候很难分清标准、字符集、编码方式这几个概念呢？</strong></p>
-<p>其实呀，对于 ASCII、GB2312、Big5、GBK、GB18030 之类的标准来说，基本上一个字符集只对应一种编码方式。比如 ASCII标准 本身就直接规定了 ASCII字符集 和 ASCII编码方式；而 GB2312标准 则是一套字符集标准，实际上用 EUC-CN 这一种编码方式来编码。GBK 和 GB18030 等也类似。</p>
-<p>又因为很多文献中，写作并不严谨，有时就会省略掉 “标准”、”字符集”、”编码”这样的后缀，只使用名称。在提及 ASCII 的时候，实际上指的既可以是 ASCII字符集 又可以是 ASCII码，还可以是 ASCII标准 这样一个整体；提及 GB2312 时，指的则是 GB2312字符集 和 EUC-CN编码方式 组合起来的整体。于是呀，很多人受到这些遗留标准的影响，以为字符集和编码方式是同一回事儿，而无法正确理解字符集和编码方式的关系。</p>
-<p><strong>对于 Unicode标准 来说，字符集和编码方式是明确区分的</strong>。Wikipedia的Unicode词条是这样说的：</p>
+<p>接下来再说说最难说清楚的<strong>编码、编码方式、编码方案、实现方式、字符编码（character encoding）</strong>，这几个术语经常都会混用，甚至在同一篇文献中的不同地方也常常出现不同的称谓，它们之间或许有一些细微的差别，但是由于中文文献中混用得太多，基本上都被认为是同一样东西了。</p>
+<p>那<strong>为什么有时候很难分清标准、字符集、编码这几个概念呢？</strong></p>
+<p>其实呀，对于 ASCII、GB2312、Big5、GBK、GB18030 之类的标准来说，基本上一个字符集只对应一种编码。比如 ASCII标准 本身就直接规定了 ASCII字符集 和 ASCII编码；而 GB2312标准 则是一套字符集标准，实际上用 EUC-CN 来编码。GBK 和 GB18030 等也类似。</p>
+<p>又因为很多文献中，写作并不严谨，有时就会省略掉 “标准”、”字符集”、”编码”这样的后缀，只使用名称。在提及 ASCII 的时候，实际上指的既可以是 ASCII字符集 又可以是 ASCII编码，还可以是 ASCII标准 这样一个整体；提及 GB2312 时，指的则是 GB2312字符集 和 EUC-CN编码 组合起来的整体。于是呀，很多人受到这些遗留标准的影响，以为字符集和编码是同一回事儿，而无法正确理解字符集和编码的关系。</p>
+<p>但是，<strong>对 Unicode标准 来说，字符集和编码是明确区分的</strong>。Wikipedia的Unicode词条是这样说的：</p>
 <blockquote>
 <p><strong>Unicode</strong> is a computing industry standard for the consistent encoding, representation, and handling of text expressed in most of the world’s writing systems. <strong>Developed in conjunction with the Universal Coded Character Set (UCS) standard</strong> and <strong>published as The Unicode Standard.</strong> …… The standard consists of a set of code charts for visual reference, an encoding method and set of standard character encodings, a set of reference data files, and a number of related items, such as character properties, rules for normalization, decomposition, collation, rendering, and bidirectional display order (for the correct display of text containing both right-to-left scripts, such as Arabic and Hebrew, and left-to-right scripts).</p>
 </blockquote>
-<p>最开始的时候，UCS和Unicode是两个不同的标准，由不同的组织提出。Unicode是Unicode联盟进行整理和编码的。和Unicode联盟类似，ISO也在做同样的事情，创造了UCS。后来双方意识到世界上并不需要两套通用字符集，所以就开始进行整合，到Unicode2.0时，Unicode的编码和UCS的编码就基本一致了，所以<strong>粗略来说，可以认为Unicode和UCS是同一样东西，它们是共同发展的</strong>。</p>
-<p>但是从细节上来说，UCS中除了字符集，还定义了<strong>UCS-2（曾被称为Unicode，但现在Unicode字符集的范围已经远远超出UCS-2所能表示的，所以UCS-2被废弃了）</strong>、UCS-4等等实现UCS字符集的编码方式；而Unicode标准不但能够使用UCS-2和UCS-4编码，还针对传输/存储定义了另外一些编码方式，如UTF-8、UTF-16（可以认为是UCS-2的扩展）和UTF-32（可以认为是UCS-4的子集）等等。综上而言，<strong>说 Unicode 是一种编码方式是带误导性并且不合时的。</strong></p>
-<blockquote>
-<p>Unicode defines two mapping methods: the Unicode Transformation Format (UTF) encodings, and the Universal Coded Character Set (UCS) encodings. An encoding maps (possibly a subset of) the range of Unicode code points to sequences of values in some fixed-size range, termed code values. The numbers in the names of the encodings indicate the number of bits per code value (for UTF encodings) or the number of bytes per code value (for UCS encodings). UTF-8 and UTF-16 are probably the most commonly used encodings. UCS-2 is an obsolete subset of UTF-16; UCS-4 and UTF-32 are functionally equivalent.</p>
-</blockquote>
-<p>贴一段Wikipedia上的原话作为这个小节的结束：</p>
+<p>那么这里又产生一个新问题了？<strong>UCS和Unicode的关系是怎样的呢？</strong></p>
+<p>最开始的时候，UCS和Unicode是两个不同的标准，由不同的组织提出。Unicode是Unicode联盟进行整理和编码的。和Unicode联盟类似，ISO也做了类似的事情，创造了UCS字符集标准。后来双方意识到世界上并不需要两套通用字符集，于是就开始整合，到了Unicode2.0时，Unicode和UCS的编码（字符集）就基本一致了，所以<strong>粗略来说，可以认为Unicode和UCS是同一样东西，它们是共同发展的</strong>。</p>
+<p>但是从细节上来说，UCS中除了字符集，还定义有<strong>UCS-2（曾被称为Unicode，但现在Unicode字符集的范围已经远远超出UCS-2所能表示的，所以UCS-2被废弃了）</strong>、UCS-4等等用于实现UCS字符集的编码；而Unicode标准不但能够使用UCS-2和UCS-4编码，还针对传输/存储定义了另外一些编码，如UTF-8、UTF-16（可以认为是UCS-2的扩展）和UTF-32（可以认为是UCS-4的子集）等等。综上所述，<strong>说 Unicode 是一种编码是带误导性并且不合时的。</strong></p>
+<p>再贴一段Wikipedia上的原话：</p>
 <blockquote>
 <p>Unicode can be implemented by different character encodings. The most commonly used encodings are UTF-8, UTF-16 and the now-obsolete UCS-2.</p>
 </blockquote>
@@ -49,6 +47,12 @@
 <blockquote>
 <p>Unicode（字符集标准） 可以使用不同的字符编码进行实现。 最常用的编码（方式）有UTF-8，UTF-16以及现在已经废弃了的UCS-2。</p>
 </blockquote>
+<p>最后再总结一下几个概念吧：</p>
+<h4 id="Character-repertoire"><a href="#Character-repertoire" class="headerlink" title="Character repertoire"></a>Character repertoire</h4><p>字符集，是一个系统所能支持的所有抽象字符（包含一种或多种语言以及使用的标点符号）的集合。它有可能是闭合的，比如ASCII标准的字符集，只包含西文字符和符号等等；也可能是开放的，比如Unicode标准的字符集，可以允许继续添加新的字符。</p>
+<h4 id="Coded-character-set"><a href="#Coded-character-set" class="headerlink" title="Coded character set"></a>Coded character set</h4><p>编码字符集，是一个把字符映射为code point的函数，每个code point对应一个字符。比方说给定一个Character repertoire，拉丁字母中的大写字母A可以被表示为65这个code point。多个编码字符集可能使用同一个Character repertoire，但采用不同的映射方式。</p>
+<h4 id="Character-encoding-form"><a href="#Character-encoding-form" class="headerlink" title="Character encoding form"></a>Character encoding form</h4><p>字符编码方式，是code point和code unit之间的映射。比方说一个使用16 bit code unit来存储信息，则一个code unit最多能表示0~65535，对于code point大于65535的字符就需要使用多个code unit来存储了。</p>
+<h4 id="Character-encoding-scheme"><a href="#Character-encoding-scheme" class="headerlink" title="Character encoding scheme"></a>Character encoding scheme</h4><p>字符编码方案，是code unit和octets序列之间的映射。在传统的二进制数字概念中，1 byte（字节）=8 bit（位）。<strong>大多数因特网标准使用octet（八位组）这个术语而不是使用字节来表示8 bit</strong>。该术语起始于TCP/IP发展的早期，当时许多早期的工作是在诸如DEC－10这样的系统上进行的，然而这些系统的结构使用的字节(byte)长度是10位（bit）,因此出现了octet的单位，即准确定义 1 octet = 8 bit。字符编码方案包括UTF-8、UTF-16等等。</p>
+<p>所以呀，从这里可以看出编码方式和编码方案还是有那么一点区别的，编码方式是一种定长的映射，我们知道英文字母只需要8 bit就能存储了，如果都采用16 bit的code unit来存就会造成很大的浪费。正因为这样，所以又有了编码方案，在存储/传输的实现上进行改变，从而节省空间/带宽。但是混用得实在太多了，也就很难再分清了。</p>
 <h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><p><img src="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting1.png" alt="Encoding Setting"></p>
 <p><img src="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting2.png" alt="Encoding Setting"></p>
 <h2 id="Windows中的编码问题"><a href="#Windows中的编码问题" class="headerlink" title="Windows中的编码问题"></a>Windows中的编码问题</h2><h2 id="Python3中的编码问题"><a href="#Python3中的编码问题" class="headerlink" title="Python3中的编码问题"></a>Python3中的编码问题</h2><p>其实最早的时候，由于各地区使用的编码方式不同，使用不同语言的人交流就成了一个大问题。国际标准组织ISO制订了统一的<strong>通用字符集（Universal Character Set，UCS）</strong>，也<strong>简称为Unicode</strong>。<strong>目前实际应用的Unicode版本对应于UCS-2编码方式</strong>，使用16位的编码空间。也就是每个字符占用2个字节。这样理论上一共最多可以表示 2^16 也即 65536 个字符，基本满足各种语言的使用。</p>
