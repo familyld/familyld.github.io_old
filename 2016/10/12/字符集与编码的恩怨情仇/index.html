@@ -94,14 +94,11 @@
 <meta property="og:site_name" content="林肯先生的Blog">
 <meta property="og:description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。
 编码问题一直以来都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作或者发布产品时">
-<meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting1.png">
-<meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting2.png">
-<meta property="og:updated_time" content="2016-10-18T04:08:08.903Z">
+<meta property="og:updated_time" content="2016-10-18T04:12:53.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符集与编码的恩怨情仇">
 <meta name="twitter:description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。
 编码问题一直以来都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作或者发布产品时">
-<meta name="twitter:image" content="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting1.png">
 
 
 
@@ -388,7 +385,7 @@
 <h2 id="标准、字符集与编码"><a href="#标准、字符集与编码" class="headerlink" title="标准、字符集与编码"></a>标准、字符集与编码</h2><p>在查找相关资料的过程中，我发现<strong>标准、字符集、编码这几个概念相当容易被混淆</strong>，甚至不少资深程序员也会说混。在廖雪峰老师的Python3教程中，他所说的Unicode指的是一种编码，而现在我们讨论Unicode的时候，一般是指Unicode字符集，它有多种编码，如UTF-8、UTF-16和UTF-32。那是不是廖雪峰老师所说的是错误的呢？<strong>XXX标准、XXX字符集、XXX编码到底有什么区别呢？</strong></p>
 <p>首先呀，像前面一节说到的那样，根据需要会制定出不同的<strong>标准（standard）</strong>。有时候一套标准只涉及到字符集，就称为字符集标准。但是一套标准里面还可能涉及到实现该字符集的一种或多种编码以及其它一些细节。</p>
 <p><strong>字符集（character set）</strong>是什么呢？更准确的说，应该称其为<strong>编码字符集coded character set (CCS)</strong>。它定义的是<strong>字符和code point的映射关系</strong>，code point通常是用十六进制表示的整数，比方说Unicode字符集中，使用4位十六进制数的code point <code>0061</code>（十进制的97） 来表示小写字母 <code>a</code>。字符集里的每一条标识包括code point，对应的字符以及一个明确的字符名称：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">0061</span>    <span class="string">'a'</span>; LATIN SMALL LETTER A</div><div class="line"><span class="number">0062</span>    <span class="string">'b'</span>; LATIN SMALL LETTER B</div><div class="line"><span class="number">0063</span>    <span class="string">'c'</span>; LATIN SMALL LETTER C</div><div class="line">...</div><div class="line"><span class="number">007</span>B    <span class="string">'&#123;'</span>; LEFT CURLY BRACKET</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">0061</span><span class="string">'a'</span>; LATIN SMALL LETTER A</div><div class="line"><span class="number">0062</span><span class="string">'b'</span>; LATIN SMALL LETTER B</div><div class="line"><span class="number">0063</span><span class="string">'c'</span>; LATIN SMALL LETTER C</div><div class="line">...</div><div class="line"><span class="number">007</span>B<span class="string">'&#123;'</span>; LEFT CURLY BRACKET</div></pre></td></tr></table></figure>
 <p>接下来再说说最难说清楚的<strong>编码、编码方式、编码方案、实现方式、字符编码（character encoding）</strong>，这几个术语经常都会混用，甚至在同一篇文献中的不同地方也常常出现不同的称谓，它们之间或许有一些细微的差别，但是由于中文文献中混用得太多，基本上都被认为是同一样东西了。</p>
 <p>那<strong>为什么有时候很难分清标准、字符集、编码这几个概念呢？</strong></p>
 <p>其实呀，对于 ASCII、GB2312、Big5、GBK、GB18030 之类的标准来说，基本上一个字符集只对应一种编码。比如 ASCII标准 本身就直接规定了 ASCII字符集 和 ASCII编码；而 GB2312标准 则是一套字符集标准，实际上用 EUC-CN 来编码。GBK 和 GB18030 等也类似。</p>
@@ -414,41 +411,30 @@
 <h4 id="Character-encoding-form"><a href="#Character-encoding-form" class="headerlink" title="Character encoding form"></a>Character encoding form</h4><p>字符编码方式，是code point和一个/多个code unit之间的映射。比方说一个使用16 bit code unit来存储信息的系统，它的一个code unit最多能表示0~65535，对于code point小于等于65535的字符，一个code unit就能存储了，而code point大于65535的字符则需要使用多个code unit来存储。</p>
 <h4 id="Character-encoding-scheme"><a href="#Character-encoding-scheme" class="headerlink" title="Character encoding scheme"></a>Character encoding scheme</h4><p>字符编码方案，是code unit和octets序列之间的映射。在传统的二进制数字概念中，1 byte（字节）=8 bit（位）。<strong>大多数因特网标准使用octet（八位组）这个术语而不是使用字节来表示8 bit</strong>。该术语起始于TCP/IP发展的早期，当时许多早期的工作是在诸如DEC－10这样的系统上进行的，然而这些系统的结构使用的字节(byte)长度是10位（bit）,因此出现了octet的单位，即准确定义 1 octet = 8 bit。字符编码方案包括UTF-8、UTF-16等等。</p>
 <p>所以呀，从这里可以看出编码方式和编码方案还是有那么一些区别的，我们知道英文字母只需要8 bit就能存储了，如果都采用16 bit的code unit来存就会造成很大的浪费。正因为这样，所以又有了编码方案，在存储/传输的实现上进行改变，从而节省空间/带宽。但是混用得实在太多了，也就很难再分清了。</p>
-<h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><p><img src="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting1.png" alt="Encoding Setting"></p>
-<p><img src="http://oe0e8k1nf.bkt.clouddn.com/EncodingSetting2.png" alt="Encoding Setting"></p>
+<h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><p>To be implemented.</p>
 <h2 id="Windows中的编码问题"><a href="#Windows中的编码问题" class="headerlink" title="Windows中的编码问题"></a>Windows中的编码问题</h2><p>To be implemented.</p>
 <h2 id="Python3中的编码问题"><a href="#Python3中的编码问题" class="headerlink" title="Python3中的编码问题"></a>Python3中的编码问题</h2><p>To be implemented.</p>
-<h2 id="参考与感谢"><a href="#参考与感谢" class="headerlink" title="参考与感谢"></a>参考与感谢</h2><ol>
-<li><p>廖雪峰-Python3教程</p>
-<ul>
+<h2 id="参考与感谢"><a href="#参考与感谢" class="headerlink" title="参考与感谢"></a>参考与感谢</h2><h4 id="廖雪峰-Python3教程"><a href="#廖雪峰-Python3教程" class="headerlink" title="廖雪峰-Python3教程"></a>廖雪峰-Python3教程</h4><ul>
 <li><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000" target="_blank" rel="external">字符串和编码</a></li>
 </ul>
-</li>
-<li><p>Python官方文档</p>
-<ul>
+<h4 id="Python官方文档"><a href="#Python官方文档" class="headerlink" title="Python官方文档"></a>Python官方文档</h4><ul>
 <li><a href="https://docs.python.org/3/c-api/unicode.html" target="_blank" rel="external">Unicode Objects and Codecs</a></li>
 <li><a href="https://docs.python.org/3/howto/unicode.html" target="_blank" rel="external">Unicode HOWTO</a></li>
 </ul>
-</li>
-<li><p>知乎</p>
-<ul>
+<h4 id="知乎"><a href="#知乎" class="headerlink" title="知乎"></a>知乎</h4><ul>
 <li><a href="https://www.zhihu.com/question/20650946" target="_blank" rel="external">Windows 记事本的 ANSI、Unicode、UTF-8 这三种编码模式有什么区别？</a></li>
 <li><a href="https://www.zhihu.com/question/23374078" target="_blank" rel="external">Unicode 和 UTF-8 有何区别？</a></li>
 <li><a href="https://www.zhihu.com/question/20167122" target="_blank" rel="external">「带 BOM 的 UTF-8」和「无 BOM 的 UTF-8」有什么区别？网页代码一般使用哪个？</a></li>
 <li><a href="https://www.zhihu.com/question/19817672" target="_blank" rel="external">为什么不少网站使用 UTF-8 编码？</a></li>
 </ul>
-</li>
-<li><p>Wikipedia</p>
-<ul>
+<h4 id="Wikipedia"><a href="#Wikipedia" class="headerlink" title="Wikipedia"></a>Wikipedia</h4><ul>
 <li><a href="https://en.wikipedia.org/wiki/Wide_character" target="_blank" rel="external">Wide character</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Unicode#Mapping_and_encodings" target="_blank" rel="external">Unicode</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Byte_order_mark" target="_blank" rel="external">Byte order mark</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Character_encoding#Code_unit" target="_blank" rel="external">Character encoding</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Universal_Coded_Character_Set" target="_blank" rel="external">Universal Coded Character Set</a></li>
 </ul>
-</li>
-</ol>
-<p>特别感谢知乎用户<a href="https://www.zhihu.com/people/lianghai" target="_blank" rel="external">梁海</a>、<a href="https://www.zhihu.com/people/chen-fu-zhou" target="_blank" rel="external">陈甫鸼</a>和<a href="https://www.zhihu.com/people/yu-yang-31-64" target="_blank" rel="external">于洋</a>，他们的回答都很有帮助。</p>
+<p>最后，特别感谢知乎用户<a href="https://www.zhihu.com/people/lianghai" target="_blank" rel="external">梁海</a>、<a href="https://www.zhihu.com/people/chen-fu-zhou" target="_blank" rel="external">陈甫鸼</a>和<a href="https://www.zhihu.com/people/yu-yang-31-64" target="_blank" rel="external">于洋</a>，他们的回答都很有帮助。</p>
 
       
     </div>
@@ -651,7 +637,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码的历史"><span class="nav-number">1.</span> <span class="nav-text">编码的历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准、字符集与编码"><span class="nav-number">2.</span> <span class="nav-text">标准、字符集与编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Character-repertoire"><span class="nav-number">2.0.1.</span> <span class="nav-text">Character repertoire</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coded-character-set"><span class="nav-number">2.0.2.</span> <span class="nav-text">Coded character set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character-encoding-form"><span class="nav-number">2.0.3.</span> <span class="nav-text">Character encoding form</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character-encoding-scheme"><span class="nav-number">2.0.4.</span> <span class="nav-text">Character encoding scheme</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带BOM和不带BOM"><span class="nav-number">3.</span> <span class="nav-text">带BOM和不带BOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows中的编码问题"><span class="nav-number">4.</span> <span class="nav-text">Windows中的编码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3中的编码问题"><span class="nav-number">5.</span> <span class="nav-text">Python3中的编码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考与感谢"><span class="nav-number">6.</span> <span class="nav-text">参考与感谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码的历史"><span class="nav-number">1.</span> <span class="nav-text">编码的历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准、字符集与编码"><span class="nav-number">2.</span> <span class="nav-text">标准、字符集与编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Character-repertoire"><span class="nav-number">2.0.1.</span> <span class="nav-text">Character repertoire</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coded-character-set"><span class="nav-number">2.0.2.</span> <span class="nav-text">Coded character set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character-encoding-form"><span class="nav-number">2.0.3.</span> <span class="nav-text">Character encoding form</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character-encoding-scheme"><span class="nav-number">2.0.4.</span> <span class="nav-text">Character encoding scheme</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带BOM和不带BOM"><span class="nav-number">3.</span> <span class="nav-text">带BOM和不带BOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows中的编码问题"><span class="nav-number">4.</span> <span class="nav-text">Windows中的编码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3中的编码问题"><span class="nav-number">5.</span> <span class="nav-text">Python3中的编码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考与感谢"><span class="nav-number">6.</span> <span class="nav-text">参考与感谢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#廖雪峰-Python3教程"><span class="nav-number">6.0.1.</span> <span class="nav-text">廖雪峰-Python3教程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python官方文档"><span class="nav-number">6.0.2.</span> <span class="nav-text">Python官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知乎"><span class="nav-number">6.0.3.</span> <span class="nav-text">知乎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wikipedia"><span class="nav-number">6.0.4.</span> <span class="nav-text">Wikipedia</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
