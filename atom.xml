@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-10-19T04:50:26.304Z</updated>
+  <updated>2016-10-19T08:19:04.436Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://2wildkids.com/2016/10/12/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81%E7%9A%84%E6%81%A9%E6%80%A8%E6%83%85%E4%BB%87/"/>
     <id>http://2wildkids.com/2016/10/12/字符集与编码的恩怨情仇/</id>
     <published>2016-10-12T08:20:20.000Z</published>
-    <updated>2016-10-19T04:50:26.304Z</updated>
+    <updated>2016-10-19T08:19:04.436Z</updated>
     
     <content type="html"><![CDATA[<p>最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。</p>
 <p>编码问题一直以来都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作或者发布产品时，没有统一好编码就会造成很大的问题，特别是对于来自不同国家使用不同语言的工作人员/用户来说。因此，统一编码是非常重要的，也就有了Unicode的出现。</p>
@@ -91,10 +91,24 @@
 <p>BOM use is optional, and, if used, should appear at the start of the text stream.</p>
 </blockquote>
 <p>BOM其实就是用来标示Unicode纯文本字节流用的是哪一种编码，它设计出来不是用来支持HTML和XML的。要识别文本的编码，HTML可以使用charset属性，XML可以使用encoding属性，没必要使用BOM。使用BOM主要是微软的习惯，UNIX系统是不鸟BOM的。</p>
-<p>主要问题出在UNIX系统中所有脚本语言通用的首行 <code>#!</code> 标示，它依赖于shell解析，而很多shell出于兼容的考虑是不检测BOM的。因此在文本开头加入BOM时，shell会把它解释为某个普通字符，从而破坏了 <code>#!</code> 标示。另外还有一点就是，BOM本身违反了一个UNIX设计的常见原则，就是文档中存在的数据必须可见，而BOM不能作为可见字符被文本编辑器编辑。</p>
+<p>有一个最主要的原因是，在UNIX系统中，所有脚本语言通用的首行 <code>#!</code> 标示依赖于shell解析，而很多shell出于兼容的考虑是不检测BOM的。因此在文本开头加入BOM时，shell会把它解释为某个普通字符，从而破坏了 <code>#!</code> 标示。另外还有一点就是，BOM本身违反了一个UNIX设计的常见原则，就是文档中存在的数据必须可见，而BOM不能作为可见字符被文本编辑器编辑。</p>
 <p>注意，我们在使用文件编辑器保存文本文件时，应当保存为UTF-8 without BOM的格式，在UTF-8文件中放置 BOM 主要是微软的习惯。BOM是为 UTF-16 和 UTF-32 准备的，用于标记字节序（byte order）。微软在 UTF-8 中使用 BOM 是因为这样可以把 UTF-8 和 ASCII 等编码明确区分开，但这样的文件在 Windows 之外的操作系统里会带来问题。</p>
-<h2 id="Windows中的编码问题"><a href="#Windows中的编码问题" class="headerlink" title="Windows中的编码问题"></a>Windows中的编码问题</h2><p>To be implemented.</p>
-<h2 id="Python3中的编码问题"><a href="#Python3中的编码问题" class="headerlink" title="Python3中的编码问题"></a>Python3中的编码问题</h2><p>To be implemented.</p>
+<h2 id="Windows中的编码问题"><a href="#Windows中的编码问题" class="headerlink" title="Windows中的编码问题"></a>Windows中的编码问题</h2><p>这一节所说的Windows中的编码，主要是指Windows自带的文本编辑器-记事本中的语境。</p>
+<p>在记事本中：</p>
+<ul>
+<li>所谓的「ANSI」指的是对应当前系统 locale 的遗留（legacy）编码[1]。</li>
+<li>所谓的「Unicode」指的是带有 BOM 的小端序 UTF-16[2]。</li>
+<li>所谓的「UTF-8」指的是带 BOM 的 UTF-8[3]。</li>
+</ul>
+<h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><ul>
+<li><p>[1] Windows 里说的「ANSI」其实是 Windows code pages，这个模式根据当前 locale 选定具体的编码，比如简中 locale 下是 GBK。把自己这些 code page 称作「ANSI」是 Windows 的臭毛病。在 ASCII 范围内它们应该是和 ASCII 一致的。</p>
+</li>
+<li><p>[2] 把带有 BOM 的小端序 UTF-16（即UTF-16LE）称作「Unicode」也是 Windows 的臭毛病。Windows 从 Windows 2000 开始就已经支持 surrogate pair 了，所以已经是 UTF-16 了，「UCS-2」这个说法已经不合适了。UCS-2 只能编码 BMP 范围内的字符，从 1996 年起就在 Unicode/ISO 标准中被 UTF-16 取代了（UTF-16 通过蛋疼的 surrogate pair 来编码超出 BMP 的字符）。都十多年了，求求大家别再误称了……</p>
+</li>
+<li><p>[3] 把带 BOM 的 UTF-8 称作「UTF-8」又是 Windows 的臭毛病。如果忽略 BOM，那么在 ASCII 范围内与 ASCII 一致。</p>
+</li>
+</ul>
+<h2 id="Python3中的编码问题"><a href="#Python3中的编码问题" class="headerlink" title="Python3中的编码问题"></a>Python3中的编码问题</h2><p>廖雪峰老师说Python3中字符串使用Unicode编码，但正如我们前面所说的，现在说Unicode是一种编码是不合时的，准确来说，Python3中字符串用的是严格使用两个字节的UCS-2编码，即使是英文字母也使用两个字节。</p>
 <h2 id="参考与感谢"><a href="#参考与感谢" class="headerlink" title="参考与感谢"></a>参考与感谢</h2><h4 id="廖雪峰-Python3教程"><a href="#廖雪峰-Python3教程" class="headerlink" title="廖雪峰-Python3教程"></a>廖雪峰-Python3教程</h4><ul>
 <li><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000" target="_blank" rel="external">字符串和编码</a></li>
 </ul>
@@ -115,7 +129,7 @@
 <li><a href="https://en.wikipedia.org/wiki/Character_encoding#Code_unit" target="_blank" rel="external">Character encoding</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Universal_Coded_Character_Set" target="_blank" rel="external">Universal Coded Character Set</a></li>
 </ul>
-<p>最后，特别感谢知乎用户<a href="https://www.zhihu.com/people/lianghai" target="_blank" rel="external">梁海</a>、<a href="https://www.zhihu.com/people/chen-fu-zhou" target="_blank" rel="external">陈甫鸼</a>和<a href="https://www.zhihu.com/people/yu-yang-31-64" target="_blank" rel="external">于洋</a>，他们的回答都很有帮助。</p>
+<p>最后，特别感谢知乎用户<a href="https://www.zhihu.com/people/lianghai" target="_blank" rel="external">梁海</a>、<a href="https://www.zhihu.com/people/chen-fu-zhou" target="_blank" rel="external">陈甫鸼</a>和<a href="https://www.zhihu.com/people/yu-yang-31-64" target="_blank" rel="external">于洋</a>，他们的回答都对我构建这篇文章很有帮助。</p>
 ]]></content>
     
     <summary type="html">
