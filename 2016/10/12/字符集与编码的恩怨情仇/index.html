@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="林肯先生的Blog">
 <meta property="og:description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。
 编码问题一直以来都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作或者发布产品时">
-<meta property="og:updated_time" content="2016-10-19T08:43:26.698Z">
+<meta property="og:updated_time" content="2016-10-19T08:46:16.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符集与编码的恩怨情仇">
 <meta name="twitter:description" content="最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。
@@ -382,10 +382,7 @@
 <p>后来随着计算机技术的发展，各个国家都开始使用计算机了，但并不是每个国家都使用英语呀。中华文化博大精深，光是常用汉字就有6000多个，显然处理中文时一个字节是不足够的，至少要用两个字节，并且不能与ASCII冲突，因此就有了中国自己制定的<strong>GB2312标准</strong>（每个字符两字节）。后来由于中文字实在太多了，然后还有一些少数民族使用的文字，于是又相继推出了GBK标准和GB18030标准。</p>
 <p>日本和韩国也不例外，日本制定了<strong>Shift_JIS标准</strong>，韩国制定了<strong>Euc-kr标准</strong>。还有很多使用其他语言的国家/地区也纷纷制定了适合自己语言的编码标准。</p>
 <p>但是，各个国家都用自己不同的标准和编码，在多语言的环境下就很容易产生冲突，产生乱码。国际标准组织ISO看不下去了，就制定了一套统一的标准：<strong>通用字符集（Universal Character Set，UCS）</strong>，后来发展为俗称的<strong>Unicode标准</strong>，将多种语言文字统一到一套标准中。</p>
-<h2 id="标准、字符集与编码"><a href="#标准、字符集与编码" class="headerlink" title="标准、字符集与编码"></a>标准、字符集与编码</h2><p>在查找相关资料的过程中，我发现<strong>标准、字符集、编码这几个概念相当容易被混淆</strong>，甚至不少资深程序员也会说混。在廖雪峰老师的Python3教程中，他所说的Unicode指的是一种编码，而现在我们讨论Unicode的时候，一般是指Unicode字符集，它有多种编码，如UTF-8、UTF-16和UTF-32。那是不是廖雪峰老师所说的是错误的呢？<strong>XXX标准、XXX字符集、XXX编码到底有什么区别呢？</strong></p>
-<p>首先呀，像前面一节说到的那样，根据需要会制定出不同的<strong>标准（standard）</strong>。有时候一套标准只涉及到字符集，就称为字符集标准。但是一套标准里面还可能涉及到实现该字符集的一种或多种编码以及其它一些细节。</p>
-<p><strong>字符集（character set）</strong>是什么呢？更准确的说，应该称其为<strong>编码字符集coded character set (CCS)</strong>。它定义的是<strong>字符和code point的映射关系</strong>，code point通常是用十六进制表示的整数，比方说Unicode字符集中，使用4位十六进制数的code point <code>0061</code>（十进制的97） 来表示小写字母 <code>a</code>。字符集里的每一条标识包括code point，对应的字符以及一个明确的字符名称：</p>
-<h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><p>先贴一段wikipedia的原文：</p>
+<h2 id="标准、字符集与编码"><a href="#标准、字符集与编码" class="headerlink" title="标准、字符集与编码"></a>标准、字符集与编码</h2><h2 id="带BOM和不带BOM"><a href="#带BOM和不带BOM" class="headerlink" title="带BOM和不带BOM"></a>带BOM和不带BOM</h2><p>先贴一段wikipedia的原文：</p>
 <p>The byte order mark (BOM) is a Unicode character, U+FEFF BYTE ORDER MARK (BOM), whose appearance as a magic number at the start of a text stream can signal several things to a program consuming the text:</p>
 <ul>
 <li><blockquote>
