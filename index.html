@@ -360,10 +360,17 @@
         
           <p>最近在整理Python学习笔记的时候，发现自己一直以来对Unicode的认识和廖雪峰老师在Python3教程中所说的有不一致的地方，抱着求知的态度，查找多方资料后总算是弄明白了，也就整理成了这一篇文章。</p>
 <p>编码问题一直以来都是很多程序员的噩梦，有时候好不容易写好一个带着详细注释的代码文件，保存一下再打开就发现注释全都乱码了。自己工作的时候还好，摸索一下弄对编码就好了。但是如果是多人协作或者发布产品时，没有统一好编码就会造成很大的问题，特别是对于来自不同国家使用不同语言的工作人员/用户来说。因此，统一编码是非常重要的，也就有了Unicode的出现。</p>
-<p>下文将通过以下顺序进行讲解：<br><!-- MarkdownTOC --></p>
+<p>下文将通过以下顺序进行讲解：</p>
+<!-- MarkdownTOC -->
 <ul>
 <li><a href="#编码的历史">编码的历史</a></li>
-<li><a href="#标准、字符集与编码">标准、字符集与编码</a></li>
+<li><a href="#标准、字符集与编码">标准、字符集与编码</a><ul>
+<li><a href="#character-repertoire">Character repertoire</a></li>
+<li><a href="#coded-character-set">Coded character set</a></li>
+<li><a href="#character-encoding-form">Character encoding form</a></li>
+<li><a href="#character-encoding-scheme">Character encoding scheme</a></li>
+</ul>
+</li>
 <li><a href="#带bom和不带bom">带BOM和不带BOM</a></li>
 <li><a href="#windows中的编码问题">Windows中的编码问题</a></li>
 <li><a href="#python3中的编码问题">Python3中的编码问题</a></li>
