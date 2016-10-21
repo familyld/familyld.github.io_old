@@ -148,7 +148,7 @@ set
 
 字符串和编码
 字符编码">
-<meta property="og:updated_time" content="2016-10-21T16:32:59.861Z">
+<meta property="og:updated_time" content="2016-10-21T16:43:26.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-01Python基础">
 <meta name="twitter:description" content="Python基础该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
@@ -480,6 +480,7 @@ set
 </li>
 </ul>
 <!-- /MarkdownTOC -->
+<a id="more"></a>
 <h2 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>Python可以直接表达的数据类型包括：整数，浮点数，复数，字符串，布尔值和空值。</p>
 <h5 id="整数-int"><a href="#整数-int" class="headerlink" title="整数 int"></a>整数 int</h5><p>任意大小，正负皆可。并且可以用0b、0o、0x分别表示二进制、八进制和十六进制数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0b10</span> <span class="comment"># 也可以是 0B10</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0o10</span> <span class="comment"># 也可以是 0O10</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0x10</span> <span class="comment"># 也可以是 0X10</span></div><div class="line"><span class="number">16</span></div><div class="line"></div><div class="line"><span class="comment"># 十进制转其他进制</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">2</span>)</div><div class="line"><span class="string">'0b10'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>oct(<span class="number">8</span>)</div><div class="line"><span class="string">'0o10'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hex(<span class="number">16</span>)</div><div class="line"><span class="string">'0x10'</span></div><div class="line"></div><div class="line"><span class="comment"># 其他进制转十进制（也可将字符串转换为十进制）</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0b10</span>) <span class="comment"># 也可以是 int('10', 2)</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0o10</span>) <span class="comment"># 也可以是 int('10', 8)</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0x10</span>) <span class="comment"># 也可以是 int('10', 16)</span></div><div class="line"><span class="number">16</span></div></pre></td></tr></table></figure>

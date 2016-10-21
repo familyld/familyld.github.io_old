@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-10-21T16:32:59.861Z</updated>
+  <updated>2016-10-21T16:43:26.687Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://2wildkids.com/2016/10/21/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01Python%E5%9F%BA%E7%A1%80/"/>
     <id>http://2wildkids.com/2016/10/21/Python学习笔记-01Python基础/</id>
     <published>2016-10-20T16:08:31.000Z</published>
-    <updated>2016-10-21T16:32:59.861Z</updated>
+    <updated>2016-10-21T16:43:26.687Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h1><p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
 <p>本章内容安排如下：</p>
@@ -57,6 +57,7 @@
 </li>
 </ul>
 <!-- /MarkdownTOC -->
+<a id="more"></a>
 <h2 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>Python可以直接表达的数据类型包括：整数，浮点数，复数，字符串，布尔值和空值。</p>
 <h5 id="整数-int"><a href="#整数-int" class="headerlink" title="整数 int"></a>整数 int</h5><p>任意大小，正负皆可。并且可以用0b、0o、0x分别表示二进制、八进制和十六进制数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0b10</span> <span class="comment"># 也可以是 0B10</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0o10</span> <span class="comment"># 也可以是 0O10</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0x10</span> <span class="comment"># 也可以是 0X10</span></div><div class="line"><span class="number">16</span></div><div class="line"></div><div class="line"><span class="comment"># 十进制转其他进制</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">2</span>)</div><div class="line"><span class="string">'0b10'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>oct(<span class="number">8</span>)</div><div class="line"><span class="string">'0o10'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hex(<span class="number">16</span>)</div><div class="line"><span class="string">'0x10'</span></div><div class="line"></div><div class="line"><span class="comment"># 其他进制转十进制（也可将字符串转换为十进制）</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0b10</span>) <span class="comment"># 也可以是 int('10', 2)</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0o10</span>) <span class="comment"># 也可以是 int('10', 8)</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0x10</span>) <span class="comment"># 也可以是 int('10', 16)</span></div><div class="line"><span class="number">16</span></div></pre></td></tr></table></figure>
@@ -295,7 +296,41 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Python基础&quot;&gt;&lt;a href=&quot;#Python基础&quot; class=&quot;headerlink&quot; title=&quot;Python基础&quot;&gt;&lt;/a&gt;Python基础&lt;/h1&gt;&lt;p&gt;该笔记记录的是学习&lt;a href=&quot;http://www.liaoxuefeng.com/w
+      &lt;h1 id=&quot;Python基础&quot;&gt;&lt;a href=&quot;#Python基础&quot; class=&quot;headerlink&quot; title=&quot;Python基础&quot;&gt;&lt;/a&gt;Python基础&lt;/h1&gt;&lt;p&gt;该笔记记录的是学习&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0&quot;&gt;廖雪峰Python3教程&lt;/a&gt;的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。&lt;/p&gt;
+&lt;p&gt;本章内容安排如下：&lt;/p&gt;
+&lt;!-- MarkdownTOC --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#数据类型和变量&quot;&gt;数据类型和变量&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#数据类型&quot;&gt;数据类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#变量&quot;&gt;变量&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#常量&quot;&gt;常量&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#使用list和tuple&quot;&gt;使用list和tuple&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#list&quot;&gt;list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#tuple&quot;&gt;tuple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#使用dict和set&quot;&gt;使用dict和set&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#dict&quot;&gt;dict&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#set&quot;&gt;set&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#再议不可变对象&quot;&gt;再议不可变对象&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#条件判断&quot;&gt;条件判断&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#条件判断-1&quot;&gt;条件判断&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#再议input&quot;&gt;再议input&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#循环&quot;&gt;循环&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#字符串和编码&quot;&gt;字符串和编码&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#字符编码&quot;&gt;字符编码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#字符串&quot;&gt;字符串&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#格式化&quot;&gt;格式化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- /MarkdownTOC --&gt;
     
     </summary>
     
@@ -477,7 +512,7 @@
     <link href="http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/"/>
     <id>http://2wildkids.com/2016/10/06/如何处理Hexo和MathJax的兼容问题/</id>
     <published>2016-10-06T14:09:31.000Z</published>
-    <updated>2016-10-13T03:18:59.926Z</updated>
+    <updated>2016-10-21T16:48:08.041Z</updated>
     
     <content type="html"><![CDATA[<p>今天写文章写得正高兴，码Latex公式的时候突然发现无法渲染，经过一番推敲和实践，最终解决了这个问题，在这篇博文中简单记录一下，方便其他遇到同样问题的朋友们也能顺利解决。<strong>不想看解决思路的朋友也可以<a href="http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/#小结">跳到文章末尾直接看解决方案（Jump to the end to see sulution）</a></strong>。</p>
 <h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><p>先重现一下这个问题。在写文章的时候，我码了一个相当简单的公式：</p>
@@ -520,6 +555,7 @@
 <p>最后，感谢开源和分享。</p>
 <p>最后的最后，再码一条写在SVM笔记里的长公式检验一下吧：</p>
 <script type="math/tex; mode=display">\min_{\mathbf{w},b} \frac{1}{2} \Vert \mathbf{w} \Vert^2 \quad s.t. \quad y_i(\mathbf{w}^T\phi(\mathbf{x})+b) \geq 1, \quad  i=1,2,...,m\qquad(9)</script><p>完美~ The end.</p>
+<p>补充一下评论中L同学的问题，关于行内代码，标准Markdown是支持语法高亮的，所以可以写为 <code>\$print(&quot;Hello World!&quot;)\$</code>{.python}。</p>
 ]]></content>
     
     <summary type="html">
