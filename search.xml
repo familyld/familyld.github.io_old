@@ -4,8 +4,8 @@
   
     
     <entry>
-      <title><![CDATA[Python学习笔记：01Python基础]]></title>
-      <url>http://2wildkids.com/2016/10/21/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A01Python%E5%9F%BA%E7%A1%80/</url>
+      <title><![CDATA[Python学习笔记-01Python基础]]></title>
+      <url>http://2wildkids.com/2016/10/21/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-01Python%E5%9F%BA%E7%A1%80/</url>
       <content type="html"><![CDATA[<h1 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h1><p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
 <p>本章内容安排如下：</p>
 <!-- MarkdownTOC -->
