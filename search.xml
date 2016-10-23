@@ -449,13 +449,20 @@
 <p>最后，感谢开源和分享。</p>
 <p>最后的最后，再码一条写在SVM笔记里的长公式检验一下吧：</p>
 <script type="math/tex; mode=display">\min_{\mathbf{w},b} \frac{1}{2} \Vert \mathbf{w} \Vert^2 \quad s.t. \quad y_i(\mathbf{w}^T\phi(\mathbf{x})+b) \geq 1, \quad  i=1,2,...,m\qquad(9)</script><p>完美~ The end.</p>
+<hr>
+<p><strong>备注</strong></p>
 <p>补充一下评论中L同学的问题，关于行内代码，确实还存在一点问题，之后有时间会再研究一下。</p>
-<p><strong>行内Latex</strong>：$R<em>{m \times n} = U</em>{m \times m} S<em>{m \times n} V</em>{n \times n}’$。</p>
-<p><strong>包含两个$的行内代码</strong>： <script type="math/tex">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}'</script>。</p>
-<p><strong>包含两个$的代码块</strong>：</p>
+<ul>
+<li>首先，我们希望行内公式可以用两个 <code>$</code> 符标识；</li>
+<li>而当我们使用的行内代码中出现两个 <code>$</code> 符时，它们之间的内容不应被转义为Latex公式，而是应该按原来的内容展示；</li>
+<li>同理，在代码块中出现两个 <code>$</code> 符时，我们也不希望它们之间的内容不应被转义为Latex公式。</li>
+</ul>
+<p><strong>行内公式</strong>： $R<em>{m \times n} = U</em>{m \times m} S<em>{m \times n} V</em>{n \times n}’$</p>
+<p><strong>包含两个 $ 的行内代码</strong>： <script type="math/tex">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}'</script></p>
+<p><strong>行间公式</strong>：</p>
+<script type="math/tex; mode=display">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}'</script><p><strong>包含两个 $ 的代码块</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$R_&#123;m \times n&#125; = U_&#123;m \times m&#125; S_&#123;m \times n&#125; V_&#123;n \times n&#125;&apos;$</div></pre></td></tr></table></figure>
-<p>首先，我们希望行内Latex可以用两个$符标识；而当我们使用行内代码中出现两个$符时，它们之间的内容不应被转义为Latex公式，而是应该按原来的内容展示；同理，在代码块中出现两个$符时，我们也不希望它们之间的内容不应被转义为Latex公式。</p>
-<p>这里可以看到行内Latex和行内代码的渲染确实有问题，这是因为kramed对行内公式的实现就是基于行内代码来做的，也就是说，对于kramed而言，使用两个`符括起的代码中出现两个$符的部分才会被kramed认为是行内Latex公式，要解决这个问题需要修改kramed的渲染机制。而代码块中出现两个$符这种情况是没问题的，因为kramed里面对行内Latex和行间Latex的实现机制不同。</p>
+<p>这里可以看到行内公式和行内代码的渲染确实有问题，这是因为kramed对行内公式的实现就是基于行内代码来做的，也就是说，对于kramed而言，<strong>出现 ` 符以后的两个 <code>$</code> 符之间的部分才会被kramed认为是行内公式（注意，即使没有用两个 ` 符括起来也会被匹配成行内公式，相当容易出bug）</strong>，要解决这个问题需要修改kramed的渲染机制。而在代码块中这种情况是没问题的，因为kramed里面对行内公式和行间公式的实现机制不同。</p>
 ]]></content>
     </entry>
     
