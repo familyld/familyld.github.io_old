@@ -454,6 +454,8 @@
 <p><strong>包含两个$的行内代码</strong>： <script type="math/tex">R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}'</script>。</p>
 <p><strong>包含两个$的代码块</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$R_&#123;m \times n&#125; = U_&#123;m \times m&#125; S_&#123;m \times n&#125; V_&#123;n \times n&#125;&apos;$</div></pre></td></tr></table></figure>
+<p>首先，我们希望行内Latex可以用两个$符标识；而当我们使用行内代码中出现两个$符时，它们之间的内容不应被转义为Latex公式，而是应该按原来的内容展示；同理，在代码块中出现两个$符时，我们也不希望它们之间的内容不应被转义为Latex公式。</p>
+<p>这里可以看到行内Latex和行内代码的渲染确实有问题，这是因为kramed对行内公式的实现就是基于行内代码来做的，也就是说，对于kramed而言，使用两个`符括起的代码中出现两个$符的部分才会被kramed认为是行内Latex公式，要解决这个问题需要修改kramed的渲染机制。而代码块中出现两个$符这种情况是没问题的，因为kramed里面对行内Latex和行间Latex的实现机制不同。</p>
 ]]></content>
     </entry>
     
