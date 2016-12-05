@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-12-05T13:36:30.426Z</updated>
+  <updated>2016-12-05T13:42:46.556Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://2wildkids.com/2016/12/05/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-07%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
     <id>http://2wildkids.com/2016/12/05/Python学习笔记-07面向对象高级编程/</id>
     <published>2016-12-05T13:34:46.000Z</published>
-    <updated>2016-12-05T13:36:30.426Z</updated>
+    <updated>2016-12-05T13:42:46.556Z</updated>
     
     <content type="html"><![CDATA[<p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
 <p>本章内容安排如下：</p>
@@ -370,7 +370,7 @@
 <p>我们也可以看看 <code>__mappings__</code> 属性怎么样：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>User.__mappings__</div><div class="line">&#123;<span class="string">'email'</span>: &lt;StringField:email&gt;, <span class="string">'name'</span>: &lt;StringField:username&gt;, <span class="string">'password'</span>: &lt;StringField:password&gt;, <span class="string">'id'</span>: &lt;IntegerField:id&gt;&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u.__mappings__</div><div class="line">&#123;<span class="string">'email'</span>: &lt;StringField:email&gt;, <span class="string">'name'</span>: &lt;StringField:username&gt;, <span class="string">'password'</span>: &lt;StringField:password&gt;, <span class="string">'id'</span>: &lt;IntegerField:id&gt;&#125;</div></pre></td></tr></table></figure>
 <p>正如我们定义那样，它是一个 <code>dict</code>，里面保存着各个字段的名字和它们的数据类型。</p>
-<p>虽然我们没有真的实现插入数据库，但可以看到打印出的SQL语句是正确的，要实现完整的功能，只要再使用数据库模块的接口就可以了。通过这样短短的不到100行代码，我们就借助元类实现了一个精简的 ORM 框架。</p>
+<p>虽然我们没有真的实现插入数据库，但可以看到打印出的SQL语句是正确的，要实现完整的功能，只要再使用数据库模块的接口就可以了。通过这样短短不到100行的代码，我们就借助元类实现了一个精简的 ORM 框架。</p>
 <h3 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h3><p>元类是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。</p>
 ]]></content>
     

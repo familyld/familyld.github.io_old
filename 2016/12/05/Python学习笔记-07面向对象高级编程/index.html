@@ -139,7 +139,7 @@ MixIn
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/My_Python_Notebook_MixIn3.png">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/My_Python_Notebook_MixIn4.png">
 <meta property="og:image" content="https://i.stack.imgur.com/QQ0OK.png">
-<meta property="og:updated_time" content="2016-12-05T13:36:30.426Z">
+<meta property="og:updated_time" content="2016-12-05T13:42:46.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-07面向对象高级编程">
 <meta name="twitter:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
@@ -778,7 +778,7 @@ MixIn
 <p>我们也可以看看 <code>__mappings__</code> 属性怎么样：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>User.__mappings__</div><div class="line">&#123;<span class="string">'email'</span>: &lt;StringField:email&gt;, <span class="string">'name'</span>: &lt;StringField:username&gt;, <span class="string">'password'</span>: &lt;StringField:password&gt;, <span class="string">'id'</span>: &lt;IntegerField:id&gt;&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u.__mappings__</div><div class="line">&#123;<span class="string">'email'</span>: &lt;StringField:email&gt;, <span class="string">'name'</span>: &lt;StringField:username&gt;, <span class="string">'password'</span>: &lt;StringField:password&gt;, <span class="string">'id'</span>: &lt;IntegerField:id&gt;&#125;</div></pre></td></tr></table></figure>
 <p>正如我们定义那样，它是一个 <code>dict</code>，里面保存着各个字段的名字和它们的数据类型。</p>
-<p>虽然我们没有真的实现插入数据库，但可以看到打印出的SQL语句是正确的，要实现完整的功能，只要再使用数据库模块的接口就可以了。通过这样短短的不到100行代码，我们就借助元类实现了一个精简的 ORM 框架。</p>
+<p>虽然我们没有真的实现插入数据库，但可以看到打印出的SQL语句是正确的，要实现完整的功能，只要再使用数据库模块的接口就可以了。通过这样短短不到100行的代码，我们就借助元类实现了一个精简的 ORM 框架。</p>
 <h3 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h3><p>元类是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。</p>
 
       
