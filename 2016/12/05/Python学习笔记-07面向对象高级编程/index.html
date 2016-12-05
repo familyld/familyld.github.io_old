@@ -139,7 +139,7 @@ MixIn
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/My_Python_Notebook_MixIn3.png">
 <meta property="og:image" content="http://oe0e8k1nf.bkt.clouddn.com/My_Python_Notebook_MixIn4.png">
 <meta property="og:image" content="https://i.stack.imgur.com/QQ0OK.png">
-<meta property="og:updated_time" content="2016-12-05T13:42:46.556Z">
+<meta property="og:updated_time" content="2016-12-05T13:46:50.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-07面向对象高级编程">
 <meta name="twitter:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
@@ -745,6 +745,7 @@ MixIn
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>L2 = list()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>L2.add(<span class="number">1</span>)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">AttributeError: <span class="string">'list'</span> object has no attribute <span class="string">'add'</span></div></pre></td></tr></table></figure>
 <p>但是，直接在 <code>MyList</code> 类的定义中写上 <code>add()</code> 方法不是更简单吗？是的，<strong>正常情况下我们应该直接在类定义中编写方法，而不是通过元类</strong>。</p>
 <p>但是，也有需要<strong>通过元类动态修改类定义</strong>的情况，ORM就是一个典型的例子。</p>
+<hr>
 <h3 id="编写ORM框架"><a href="#编写ORM框架" class="headerlink" title="编写ORM框架"></a>编写ORM框架</h3><p>ORM 全称 <strong>Object Relational Mapping（对象-关系映射）</strong>，简单来说就是<strong>把关系型数据库中表格的每一行都映射为一个对象，而每一个表就是一个类</strong>。这样写代码更简单，不用直接操作SQL语句。</p>
 <p>要编写一个 ORM 框架供不同的使用者使用，框架中的所有类都应该能动态定义，因为每位使用者的需求不同，需要根据具体的表结构来定义出不同的类。</p>
 <p>举个例子，假如使用者想使用这个 ORM 框架定义一个 <code>User</code> 类来操作数据库中的表格 <code>User</code>，我们期望使用者可以写出这样简洁的形式：</p>
@@ -779,6 +780,7 @@ MixIn
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>User.__mappings__</div><div class="line">&#123;<span class="string">'email'</span>: &lt;StringField:email&gt;, <span class="string">'name'</span>: &lt;StringField:username&gt;, <span class="string">'password'</span>: &lt;StringField:password&gt;, <span class="string">'id'</span>: &lt;IntegerField:id&gt;&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u.__mappings__</div><div class="line">&#123;<span class="string">'email'</span>: &lt;StringField:email&gt;, <span class="string">'name'</span>: &lt;StringField:username&gt;, <span class="string">'password'</span>: &lt;StringField:password&gt;, <span class="string">'id'</span>: &lt;IntegerField:id&gt;&#125;</div></pre></td></tr></table></figure>
 <p>正如我们定义那样，它是一个 <code>dict</code>，里面保存着各个字段的名字和它们的数据类型。</p>
 <p>虽然我们没有真的实现插入数据库，但可以看到打印出的SQL语句是正确的，要实现完整的功能，只要再使用数据库模块的接口就可以了。通过这样短短不到100行的代码，我们就借助元类实现了一个精简的 ORM 框架。</p>
+<hr>
 <h3 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h3><p>元类是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。</p>
 
       
