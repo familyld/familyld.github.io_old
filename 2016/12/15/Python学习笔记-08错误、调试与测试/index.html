@@ -144,7 +144,7 @@ IDE
 单元测试
 什么是单元测试
 编写一个单元测">
-<meta property="og:updated_time" content="2016-12-15T09:11:08.419Z">
+<meta property="og:updated_time" content="2016-12-15T09:23:04.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-08错误、调试与测试">
 <meta name="twitter:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
@@ -735,7 +735,7 @@ IDE
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>对函数 <code>fact(n)</code> 编写文档测试并执行：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    &gt;&gt;&gt; fact(1)</div><div class="line">    1</div><div class="line">    &gt;&gt;&gt; fact(5)</div><div class="line">    120</div><div class="line">    &gt;&gt;&gt; fact(0)</div><div class="line">    Traceback (most recent call last):</div><div class="line">        ...</div><div class="line">    ValueError</div><div class="line">    '''</div><div class="line">    <span class="keyword">if</span> n &lt; <span class="number">1</span>:</div><div class="line">        <span class="keyword">raise</span> ValueError()</div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> n * fact(n - <span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">import</span> doctest</div><div class="line">    doctest.testmod()</div></pre></td></tr></table></figure>
 <hr>
-<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><p>文档测试非常有用，不但可以用来测试，还可以直接作为示例代码。通过某些文档生成工具，就可以自动把包含文档测试的注释提取出来。用户看文档的时候，同时也能看到文档测试。</p>
+<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><p>文档测试非常有用，不但可以用来测试，还可以直接作为示例代码。通过某些文档生成工具，就可以自动把包含文档测试的注释提取出来。用户看文档的时候，同时也能看到文档测试中。</p>
 <hr>
 <p><br></p>
 

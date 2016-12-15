@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://2wildkids.com/"/>
-  <updated>2016-12-15T09:11:08.419Z</updated>
+  <updated>2016-12-15T09:23:04.823Z</updated>
   <id>http://2wildkids.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://2wildkids.com/2016/12/15/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08%E9%94%99%E8%AF%AF%E3%80%81%E8%B0%83%E8%AF%95%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
     <id>http://2wildkids.com/2016/12/15/Python学习笔记-08错误、调试与测试/</id>
     <published>2016-12-15T09:06:52.000Z</published>
-    <updated>2016-12-15T09:11:08.419Z</updated>
+    <updated>2016-12-15T09:23:04.823Z</updated>
     
     <content type="html"><![CDATA[<p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
 <p>本章内容安排如下：</p>
@@ -318,7 +318,7 @@
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>对函数 <code>fact(n)</code> 编写文档测试并执行：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line">    &gt;&gt;&gt; fact(1)</div><div class="line">    1</div><div class="line">    &gt;&gt;&gt; fact(5)</div><div class="line">    120</div><div class="line">    &gt;&gt;&gt; fact(0)</div><div class="line">    Traceback (most recent call last):</div><div class="line">        ...</div><div class="line">    ValueError</div><div class="line">    '''</div><div class="line">    <span class="keyword">if</span> n &lt; <span class="number">1</span>:</div><div class="line">        <span class="keyword">raise</span> ValueError()</div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> n * fact(n - <span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">import</span> doctest</div><div class="line">    doctest.testmod()</div></pre></td></tr></table></figure>
 <hr>
-<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><p>文档测试非常有用，不但可以用来测试，还可以直接作为示例代码。通过某些文档生成工具，就可以自动把包含文档测试的注释提取出来。用户看文档的时候，同时也能看到文档测试。</p>
+<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><p>文档测试非常有用，不但可以用来测试，还可以直接作为示例代码。通过某些文档生成工具，就可以自动把包含文档测试的注释提取出来。用户看文档的时候，同时也能看到文档测试中。</p>
 <hr>
 <p><br></p>
 ]]></content>
