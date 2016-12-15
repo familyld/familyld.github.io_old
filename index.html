@@ -289,6 +289,168 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/15/Python学习笔记-08错误、调试与测试/" itemprop="url">
+                  Python学习笔记-08错误、调试与测试
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-15T17:06:52+08:00" content="2016-12-15">
+              2016-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/15/Python学习笔记-08错误、调试与测试/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/15/Python学习笔记-08错误、调试与测试/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
+<p>本章内容安排如下：</p>
+<!-- MarkdownTOC -->
+<ul>
+<li><a href="#简述">简述</a></li>
+<li><a href="#错误处理">错误处理</a><ul>
+<li><a href="#错误码">错误码</a></li>
+<li><a href="#tryexceptfinally">try…except…finally</a></li>
+<li><a href="#错误的调用链">错误的调用链</a></li>
+<li><a href="#记录错误">记录错误</a></li>
+<li><a href="#抛出错误">抛出错误</a></li>
+<li><a href="#小结">小结</a></li>
+</ul>
+</li>
+<li><a href="#调试">调试</a><ul>
+<li><a href="#直接打印">直接打印</a></li>
+<li><a href="#断言">断言</a></li>
+<li><a href="#logging">logging</a></li>
+<li><a href="#pdb">pdb</a></li>
+<li><a href="#pdbsettrace">pdb.set_trace</a></li>
+<li><a href="#ide">IDE</a></li>
+<li><a href="#小结-1">小结</a></li>
+</ul>
+</li>
+<li><a href="#单元测试">单元测试</a><ul>
+<li><a href="#什么是单元测试">什么是单元测试</a></li>
+<li><a href="#编写一个单元测试">编写一个单元测试</a></li>
+<li><a href="#补充说明">补充说明</a></li>
+<li><a href="#运行单元测试">运行单元测试</a></li>
+<li><a href="#setup与teardown">setUp与tearDown</a></li>
+<li><a href="#小结-2">小结</a></li>
+</ul>
+</li>
+<li><a href="#文档测试">文档测试</a><ul>
+<li><a href="#使用文档测试">使用文档测试</a></li>
+<li><a href="#练习">练习</a></li>
+<li><a href="#小结-3">小结</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/15/Python学习笔记-08错误、调试与测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/05/Python学习笔记-07面向对象高级编程/" itemprop="url">
                   Python学习笔记-07面向对象高级编程
                 </a>
@@ -887,144 +1049,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/11/Python学习笔记-03高级特性/" itemprop="url">
-                  Python学习笔记-03高级特性
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T16:25:22+08:00" content="2016-11-11">
-              2016-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/11/Python学习笔记-03高级特性/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/11/Python学习笔记-03高级特性/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#切片">切片</a></li>
-<li><a href="#迭代">迭代</a></li>
-<li><a href="#列表生成式">列表生成式</a><ul>
-<li><a href="#生成器">生成器</a></li>
-<li><a href="#杨辉三角">杨辉三角</a></li>
-</ul>
-</li>
-<li><a href="#迭代器">迭代器</a><ul>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/11/Python学习笔记-03高级特性/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1070,7 +1094,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
