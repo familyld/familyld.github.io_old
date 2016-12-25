@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[Python学习笔记-09IO编程]]></title>
+      <url>http://2wildkids.com/2016/12/25/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-09IO%E7%BC%96%E7%A8%8B/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python学习笔记-08错误、调试与测试]]></title>
       <url>http://2wildkids.com/2016/12/15/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-08%E9%94%99%E8%AF%AF%E3%80%81%E8%B0%83%E8%AF%95%E4%B8%8E%E6%B5%8B%E8%AF%95/</url>
       <content type="html"><![CDATA[<p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
