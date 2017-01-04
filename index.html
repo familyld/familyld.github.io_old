@@ -360,6 +360,51 @@
         
           <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
 <p>本章内容安排如下：</p>
+<!-- MarkdownTOC -->
+<ul>
+<li><a href="#简介">简介</a><ul>
+<li><a href="#多任务">多任务</a></li>
+<li><a href="#进程和线程的含义">进程和线程的含义</a></li>
+<li><a href="#小结">小结</a></li>
+</ul>
+</li>
+<li><a href="#多进程">多进程</a><ul>
+<li><a href="#fork函数">fork函数</a></li>
+<li><a href="#multiprocessing">multiprocessing</a></li>
+<li><a href="#进程池">进程池</a></li>
+<li><a href="#子进程的输入和输出">子进程的输入和输出</a></li>
+<li><a href="#进程间通信">进程间通信</a></li>
+<li><a href="#小结-1">小结</a></li>
+</ul>
+</li>
+<li><a href="#多线程">多线程</a><ul>
+<li><a href="#多线程简单实现">多线程简单实现</a></li>
+<li><a href="#线程锁">线程锁</a></li>
+<li><a href="#死循环与多核cpu">死循环与多核CPU</a></li>
+<li><a href="#小结-2">小结</a></li>
+</ul>
+</li>
+<li><a href="#threadlocal">ThreadLocal</a><ul>
+<li><a href="#局部变量的传递">局部变量的传递</a></li>
+<li><a href="#threadlocal的用法">ThreadLocal的用法</a></li>
+<li><a href="#小结-3">小结</a></li>
+</ul>
+</li>
+<li><a href="#进程-vs-线程">进程 vs. 线程</a><ul>
+<li><a href="#比较多进程和多线程">比较多进程和多线程</a></li>
+<li><a href="#效率问题">效率问题</a></li>
+<li><a href="#计算密集型-vs-io密集型">计算密集型 vs. IO密集型</a></li>
+<li><a href="#异步io">异步IO</a></li>
+</ul>
+</li>
+<li><a href="#分布式进程">分布式进程</a><ul>
+<li><a href="#简介-1">简介</a></li>
+<li><a href="#实现方法">实现方法</a></li>
+<li><a href="#小结-4">小结</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/04/Python学习笔记-10进程和线程/#more" rel="contents">
               阅读全文 &raquo;
