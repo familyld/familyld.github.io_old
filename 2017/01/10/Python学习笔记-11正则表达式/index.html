@@ -87,21 +87,57 @@
 
 
 <meta name="description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
-简介字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 @ 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
-正则表达式是一种用来匹配字符串的强">
+本章内容安排如下：
+
+
+简介
+进阶
+re模块
+切分字符串
+分组
+贪婪匹配
+编译
+小结
+练习
+习题一
+习题二">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记-11正则表达式">
 <meta property="og:url" content="http://2wildkids.com/2017/01/10/Python学习笔记-11正则表达式/index.html">
 <meta property="og:site_name" content="林肯先生的Blog">
 <meta property="og:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
-简介字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 @ 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
-正则表达式是一种用来匹配字符串的强">
-<meta property="og:updated_time" content="2017-01-10T04:43:36.374Z">
+本章内容安排如下：
+
+
+简介
+进阶
+re模块
+切分字符串
+分组
+贪婪匹配
+编译
+小结
+练习
+习题一
+习题二">
+<meta property="og:updated_time" content="2017-01-10T04:49:14.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记-11正则表达式">
 <meta name="twitter:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
-简介字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 @ 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
-正则表达式是一种用来匹配字符串的强">
+本章内容安排如下：
+
+
+简介
+进阶
+re模块
+切分字符串
+分组
+贪婪匹配
+编译
+小结
+练习
+习题一
+习题二">
 
 
 
@@ -368,6 +404,25 @@
 
       
         <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
+<p>本章内容安排如下：</p>
+<!-- MarkdownTOC -->
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#进阶">进阶</a></li>
+<li><a href="#re模块">re模块</a></li>
+<li><a href="#切分字符串">切分字符串</a></li>
+<li><a href="#分组">分组</a></li>
+<li><a href="#贪婪匹配">贪婪匹配</a></li>
+<li><a href="#编译">编译</a></li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#练习">练习</a><ul>
+<li><a href="#习题一">习题一</a></li>
+<li><a href="#习题二">习题二</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+<a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 <code>@</code> 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。</p>
 <p>正则表达式是一种用来<strong>匹配字符串的强大工具</strong>。它的设计思想是<strong>用一种描述性的语言来给字符串定义一个规则，凡是符合规则的字符串，我们就认为它“匹配”了</strong>，否则，该字符串就是不合法的。</p>
 <p>所以我们判断一个字符串是否是合法的Email的方法是：</p>
