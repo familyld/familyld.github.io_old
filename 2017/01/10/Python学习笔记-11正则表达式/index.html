@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,学习笔记," />
 
 
 
@@ -86,12 +86,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="林肯先生的Blog">
-<meta property="og:url" content="http://2wildkids.com/index.html">
+<meta name="description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
+简介字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 @ 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
+正则表达式是一种用来匹配字符串的强">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记-11正则表达式">
+<meta property="og:url" content="http://2wildkids.com/2017/01/10/Python学习笔记-11正则表达式/index.html">
 <meta property="og:site_name" content="林肯先生的Blog">
+<meta property="og:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
+简介字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 @ 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
+正则表达式是一种用来匹配字符串的强">
+<meta property="og:updated_time" content="2017-01-10T04:43:36.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林肯先生的Blog">
+<meta name="twitter:title" content="Python学习笔记-11正则表达式">
+<meta name="twitter:description" content="该笔记记录的是学习廖雪峰Python3教程的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。
+简介字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 @ 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
+正则表达式是一种用来匹配字符串的强">
 
 
 
@@ -112,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://2wildkids.com/"/>
+  <link rel="canonical" href="http://2wildkids.com/2017/01/10/Python学习笔记-11正则表达式/"/>
 
-  <title> 林肯先生的Blog </title>
+  <title> Python学习笔记-11正则表达式 | 林肯先生的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +164,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,9 +274,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -288,10 +296,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/10/Python学习笔记-11正则表达式/" itemprop="url">
-                  Python学习笔记-11正则表达式
-                </a>
+                Python学习笔记-11正则表达式
               
             
           </h1>
@@ -346,6 +351,11 @@
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><span> PV:&nbsp</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>Hits
+              </span>
+          
         </div>
       </header>
     
@@ -357,9 +367,7 @@
       
 
       
-        
-          
-            <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
+        <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0" target="_blank" rel="external">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取 <code>@</code> 前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。</p>
 <p>正则表达式是一种用来<strong>匹配字符串的强大工具</strong>。它的设计思想是<strong>用一种描述性的语言来给字符串定义一个规则，凡是符合规则的字符串，我们就认为它“匹配”了</strong>，否则，该字符串就是不合法的。</p>
 <p>所以我们判断一个字符串是否是合法的Email的方法是：</p>
@@ -473,702 +481,77 @@
 <hr>
 <p><br></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oe0e8k1nf.bkt.clouddn.com/wechat-pay.png" alt="林肯先生 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
     </div>
+  </div>
 
-    <div>
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/04/Python学习笔记-10进程和线程/" itemprop="url">
-                  Python学习笔记-10进程和线程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-04T13:29:40+08:00" content="2017-01-04">
-              2017-01-04
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/04/Python学习笔记-10进程和线程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/04/Python学习笔记-10进程和线程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/学习笔记/" rel="tag">#学习笔记</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#简介">简介</a><ul>
-<li><a href="#多任务">多任务</a></li>
-<li><a href="#进程和线程的含义">进程和线程的含义</a></li>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-<li><a href="#多进程">多进程</a><ul>
-<li><a href="#fork函数">fork函数</a></li>
-<li><a href="#multiprocessing">multiprocessing</a></li>
-<li><a href="#进程池">进程池</a></li>
-<li><a href="#子进程的输入和输出">子进程的输入和输出</a></li>
-<li><a href="#进程间通信">进程间通信</a></li>
-<li><a href="#小结-1">小结</a></li>
-</ul>
-</li>
-<li><a href="#多线程">多线程</a><ul>
-<li><a href="#多线程简单实现">多线程简单实现</a></li>
-<li><a href="#线程锁">线程锁</a></li>
-<li><a href="#死循环与多核cpu">死循环与多核CPU</a></li>
-<li><a href="#小结-2">小结</a></li>
-</ul>
-</li>
-<li><a href="#threadlocal">ThreadLocal</a><ul>
-<li><a href="#局部变量的传递">局部变量的传递</a></li>
-<li><a href="#threadlocal的用法">ThreadLocal的用法</a></li>
-<li><a href="#小结-3">小结</a></li>
-</ul>
-</li>
-<li><a href="#进程-vs-线程">进程 vs. 线程</a><ul>
-<li><a href="#比较多进程和多线程">比较多进程和多线程</a></li>
-<li><a href="#效率问题">效率问题</a></li>
-<li><a href="#计算密集型-vs-io密集型">计算密集型 vs. IO密集型</a></li>
-<li><a href="#异步io">异步IO</a></li>
-</ul>
-</li>
-<li><a href="#分布式进程">分布式进程</a><ul>
-<li><a href="#简介-1">简介</a></li>
-<li><a href="#实现方法">实现方法</a></li>
-<li><a href="#小结-4">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/04/Python学习笔记-10进程和线程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/04/Python学习笔记-10进程和线程/" rel="next" title="Python学习笔记-10进程和线程">
+                <i class="fa fa-chevron-left"></i> Python学习笔记-10进程和线程
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/25/Python学习笔记-09IO编程/" itemprop="url">
-                  Python学习笔记-09IO编程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-25T23:15:57+08:00" content="2016-12-25">
-              2016-12-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/25/Python学习笔记-09IO编程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/Python学习笔记-09IO编程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#什么是io">什么是IO</a></li>
-<li><a href="#文件读写">文件读写</a><ul>
-<li><a href="#读文件">读文件</a></li>
-<li><a href="#写文件">写文件</a></li>
-<li><a href="#file-like-object">file-like Object</a></li>
-<li><a href="#二进制文件">二进制文件</a></li>
-<li><a href="#字符编码">字符编码</a></li>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-<li><a href="#stringio和bytesio">StringIO和BytesIO</a><ul>
-<li><a href="#stringio">StringIO</a></li>
-<li><a href="#bytesio">BytesIO</a></li>
-<li><a href="#为什么使用stringio和bytesio">为什么使用StringIO和BytesIO</a></li>
-<li><a href="#读写io需要注意的地方">读写IO需要注意的地方</a></li>
-<li><a href="#小结-1">小结</a></li>
-</ul>
-</li>
-<li><a href="#操作目录和文件">操作目录和文件</a><ul>
-<li><a href="#简述">简述</a></li>
-<li><a href="#环境变量">环境变量</a></li>
-<li><a href="#操作目录和文件-1">操作目录和文件</a></li>
-<li><a href="#小结-2">小结</a></li>
-<li><a href="#练习">练习</a></li>
-</ul>
-</li>
-<li><a href="#序列化">序列化</a><ul>
-<li><a href="#序列化和反序列化">序列化和反序列化</a></li>
-<li><a href="#序列化（pickle）">序列化（pickle）</a></li>
-<li><a href="#json">JSON</a></li>
-<li><a href="#json进阶">JSON进阶</a></li>
-<li><a href="#小结-3">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/25/Python学习笔记-09IO编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/15/Python学习笔记-08错误、调试与测试/" itemprop="url">
-                  Python学习笔记-08错误、调试与测试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-15T17:06:52+08:00" content="2016-12-15">
-              2016-12-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/15/Python学习笔记-08错误、调试与测试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/15/Python学习笔记-08错误、调试与测试/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#简述">简述</a></li>
-<li><a href="#错误处理">错误处理</a><ul>
-<li><a href="#错误码">错误码</a></li>
-<li><a href="#tryexceptfinally">try…except…finally</a></li>
-<li><a href="#错误的调用链">错误的调用链</a></li>
-<li><a href="#记录错误">记录错误</a></li>
-<li><a href="#抛出错误">抛出错误</a></li>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-<li><a href="#调试">调试</a><ul>
-<li><a href="#直接打印">直接打印</a></li>
-<li><a href="#断言">断言</a></li>
-<li><a href="#logging">logging</a></li>
-<li><a href="#pdb">pdb</a></li>
-<li><a href="#pdbsettrace">pdb.set_trace</a></li>
-<li><a href="#ide">IDE</a></li>
-<li><a href="#小结-1">小结</a></li>
-</ul>
-</li>
-<li><a href="#单元测试">单元测试</a><ul>
-<li><a href="#什么是单元测试">什么是单元测试</a></li>
-<li><a href="#编写一个单元测试">编写一个单元测试</a></li>
-<li><a href="#补充说明">补充说明</a></li>
-<li><a href="#运行单元测试">运行单元测试</a></li>
-<li><a href="#setup与teardown">setUp与tearDown</a></li>
-<li><a href="#小结-2">小结</a></li>
-</ul>
-</li>
-<li><a href="#文档测试">文档测试</a><ul>
-<li><a href="#使用文档测试">使用文档测试</a></li>
-<li><a href="#练习">练习</a></li>
-<li><a href="#小结-3">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/15/Python学习笔记-08错误、调试与测试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/05/Python学习笔记-07面向对象高级编程/" itemprop="url">
-                  Python学习笔记-07面向对象高级编程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T21:34:46+08:00" content="2016-12-05">
-              2016-12-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/05/Python学习笔记-07面向对象高级编程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/05/Python学习笔记-07面向对象高级编程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#使用-\\slots\\">使用 __slots__</a><ul>
-<li><a href="#动态绑定属性">动态绑定属性</a></li>
-<li><a href="#动态绑定方法">动态绑定方法</a></li>
-<li><a href="#限制可绑定的属性方法">限制可绑定的属性/方法</a></li>
-</ul>
-</li>
-<li><a href="#使用property">使用@property</a><ul>
-<li><a href="#为何需要property">为何需要@property</a></li>
-<li><a href="#如何实现property">如何实现@property</a></li>
-<li><a href="#练习">练习</a></li>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-<li><a href="#多重继承">多重继承</a><ul>
-<li><a href="#为何需要多重继承">为何需要多重继承</a></li>
-<li><a href="#使用多重继承">使用多重继承</a></li>
-<li><a href="#mixin">MixIn</a></li>
-<li><a href="#小结-1">小结</a></li>
-</ul>
-</li>
-<li><a href="#定制类">定制类</a><ul>
-<li><a href="#\\str\\">__str__</a></li>
-<li><a href="#\\iter\\">__iter__</a></li>
-<li><a href="#\\getitem\\">__getitem__</a></li>
-<li><a href="#\\getattr\\">__getattr__</a></li>
-<li><a href="#\\call\\">__call__</a></li>
-<li><a href="#小结-2">小结</a></li>
-</ul>
-</li>
-<li><a href="#使用枚举类">使用枚举类</a><ul>
-<li><a href="#为何需要枚举类">为何需要枚举类</a></li>
-<li><a href="#如何使用枚举类">如何使用枚举类</a></li>
-<li><a href="#自定义枚举类">自定义枚举类</a></li>
-<li><a href="#小结-3">小结</a></li>
-</ul>
-</li>
-<li><a href="#使用元类">使用元类</a><ul>
-<li><a href="#type函数">type函数</a></li>
-<li><a href="#什么是元类">什么是元类</a></li>
-<li><a href="#怎样使用元类">怎样使用元类</a></li>
-<li><a href="#编写orm框架">编写ORM框架</a></li>
-<li><a href="#小结-4">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/05/Python学习笔记-07面向对象高级编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -1176,6 +559,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/10/Python学习笔记-11正则表达式/"
+           data-title="Python学习笔记-11正则表达式" data-url="http://2wildkids.com/2017/01/10/Python学习笔记-11正则表达式/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1195,8 +586,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oe0e8k1nf.bkt.clouddn.com/avator-lion.jpg"
@@ -1273,6 +673,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶"><span class="nav-number">2.</span> <span class="nav-text">进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re模块"><span class="nav-number">3.</span> <span class="nav-text">re模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切分字符串"><span class="nav-number">4.</span> <span class="nav-text">切分字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组"><span class="nav-number">5.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪婪匹配"><span class="nav-number">6.</span> <span class="nav-text">贪婪匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">7.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">8.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">9.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#习题一"><span class="nav-number">9.1.</span> <span class="nav-text">习题一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#习题二"><span class="nav-number">9.2.</span> <span class="nav-text">习题二</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1392,6 +803,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
