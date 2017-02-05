@@ -289,6 +289,264 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/05/Python学习笔记-12常用内建模块（下）/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-05T10:59:35+08:00" content="2017-02-05">
+              2017-02-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/05/Python学习笔记-12常用内建模块（下）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/05/Python学习笔记-12常用内建模块（下）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/05/Python学习笔记-12常用内建模块（上）/" itemprop="url">
+                  Python学习笔记-12常用内建模块（上）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-05T10:48:53+08:00" content="2017-02-05">
+              2017-02-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/05/Python学习笔记-12常用内建模块（上）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/05/Python学习笔记-12常用内建模块（上）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
+<p>本章内容安排如下：</p>
+<!-- MarkdownTOC -->
+<ul>
+<li><a href="#datetime">datetime</a><ul>
+<li><a href="#获取当前日期和时间">获取当前日期和时间</a></li>
+<li><a href="#获取指定日期和时间">获取指定日期和时间</a></li>
+<li><a href="#datetime转换为timestamp">datetime转换为timestamp</a></li>
+<li><a href="#timestamp转换为datetime">timestamp转换为datetime</a></li>
+<li><a href="#str转换为datetime">str转换为datetime</a></li>
+<li><a href="#datetime转换为str">datetime转换为str</a></li>
+<li><a href="#datetime加减">datetime加减</a></li>
+<li><a href="#本地时间转换为utc时间">本地时间转换为UTC时间</a></li>
+<li><a href="#时区转换">时区转换</a></li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#练习">练习</a></li>
+</ul>
+</li>
+<li><a href="#collections">collections</a><ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#namedtuple">namedtuple</a></li>
+<li><a href="#deque">deque</a></li>
+<li><a href="#defaultdict">defaultdict</a></li>
+<li><a href="#ordereddict">OrderedDict</a></li>
+<li><a href="#counter">Counter</a></li>
+<li><a href="#小结-1">小结</a></li>
+</ul>
+</li>
+<li><a href="#base64">base64</a><ul>
+<li><a href="#简介-1">简介</a></li>
+<li><a href="#原理">原理</a></li>
+<li><a href="#python中的实现方式">Python中的实现方式</a></li>
+<li><a href="#小结-2">小结</a></li>
+<li><a href="#练习-1">练习</a></li>
+</ul>
+</li>
+<li><a href="#struct">struct</a><ul>
+<li><a href="#为何需要struct">为何需要struct</a></li>
+<li><a href="#struct的用法">struct的用法</a></li>
+<li><a href="#使用struct分析bmp文件">使用struct分析bmp文件</a></li>
+<li><a href="#小结-3">小结</a></li>
+<li><a href="#练习-2">练习</a></li>
+</ul>
+</li>
+<li><a href="#hashlib">hashlib</a><ul>
+<li><a href="#摘要算法简介">摘要算法简介</a></li>
+<li><a href="#python实现">Python实现</a></li>
+<li><a href="#摘要算法应用">摘要算法应用</a></li>
+<li><a href="#练习一">练习一</a></li>
+<li><a href="#加盐">加盐</a></li>
+<li><a href="#练习二">练习二</a></li>
+<li><a href="#小结-4">小结</a></li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/05/Python学习笔记-12常用内建模块（上）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/10/Python学习笔记-11正则表达式/" itemprop="url">
                   Python学习笔记-11正则表达式
                 </a>
@@ -737,339 +995,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/15/Python学习笔记-08错误、调试与测试/" itemprop="url">
-                  Python学习笔记-08错误、调试与测试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-15T17:06:52+08:00" content="2016-12-15">
-              2016-12-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/15/Python学习笔记-08错误、调试与测试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/15/Python学习笔记-08错误、调试与测试/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#简述">简述</a></li>
-<li><a href="#错误处理">错误处理</a><ul>
-<li><a href="#错误码">错误码</a></li>
-<li><a href="#tryexceptfinally">try…except…finally</a></li>
-<li><a href="#错误的调用链">错误的调用链</a></li>
-<li><a href="#记录错误">记录错误</a></li>
-<li><a href="#抛出错误">抛出错误</a></li>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-<li><a href="#调试">调试</a><ul>
-<li><a href="#直接打印">直接打印</a></li>
-<li><a href="#断言">断言</a></li>
-<li><a href="#logging">logging</a></li>
-<li><a href="#pdb">pdb</a></li>
-<li><a href="#pdbsettrace">pdb.set_trace</a></li>
-<li><a href="#ide">IDE</a></li>
-<li><a href="#小结-1">小结</a></li>
-</ul>
-</li>
-<li><a href="#单元测试">单元测试</a><ul>
-<li><a href="#什么是单元测试">什么是单元测试</a></li>
-<li><a href="#编写一个单元测试">编写一个单元测试</a></li>
-<li><a href="#补充说明">补充说明</a></li>
-<li><a href="#运行单元测试">运行单元测试</a></li>
-<li><a href="#setup与teardown">setUp与tearDown</a></li>
-<li><a href="#小结-2">小结</a></li>
-</ul>
-</li>
-<li><a href="#文档测试">文档测试</a><ul>
-<li><a href="#使用文档测试">使用文档测试</a></li>
-<li><a href="#练习">练习</a></li>
-<li><a href="#小结-3">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/15/Python学习笔记-08错误、调试与测试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/05/Python学习笔记-07面向对象高级编程/" itemprop="url">
-                  Python学习笔记-07面向对象高级编程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T21:34:46+08:00" content="2016-12-05">
-              2016-12-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/05/Python学习笔记-07面向对象高级编程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/05/Python学习笔记-07面向对象高级编程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>该笔记记录的是学习<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000#0">廖雪峰Python3教程</a>的过程，摘录了一些重点，重新编排内容，并加入了更丰富的代码示例和对学习过程中所遇到问题的理解。</p>
-<p>本章内容安排如下：</p>
-<!-- MarkdownTOC -->
-<ul>
-<li><a href="#使用-\\slots\\">使用 __slots__</a><ul>
-<li><a href="#动态绑定属性">动态绑定属性</a></li>
-<li><a href="#动态绑定方法">动态绑定方法</a></li>
-<li><a href="#限制可绑定的属性方法">限制可绑定的属性/方法</a></li>
-</ul>
-</li>
-<li><a href="#使用property">使用@property</a><ul>
-<li><a href="#为何需要property">为何需要@property</a></li>
-<li><a href="#如何实现property">如何实现@property</a></li>
-<li><a href="#练习">练习</a></li>
-<li><a href="#小结">小结</a></li>
-</ul>
-</li>
-<li><a href="#多重继承">多重继承</a><ul>
-<li><a href="#为何需要多重继承">为何需要多重继承</a></li>
-<li><a href="#使用多重继承">使用多重继承</a></li>
-<li><a href="#mixin">MixIn</a></li>
-<li><a href="#小结-1">小结</a></li>
-</ul>
-</li>
-<li><a href="#定制类">定制类</a><ul>
-<li><a href="#\\str\\">__str__</a></li>
-<li><a href="#\\iter\\">__iter__</a></li>
-<li><a href="#\\getitem\\">__getitem__</a></li>
-<li><a href="#\\getattr\\">__getattr__</a></li>
-<li><a href="#\\call\\">__call__</a></li>
-<li><a href="#小结-2">小结</a></li>
-</ul>
-</li>
-<li><a href="#使用枚举类">使用枚举类</a><ul>
-<li><a href="#为何需要枚举类">为何需要枚举类</a></li>
-<li><a href="#如何使用枚举类">如何使用枚举类</a></li>
-<li><a href="#自定义枚举类">自定义枚举类</a></li>
-<li><a href="#小结-3">小结</a></li>
-</ul>
-</li>
-<li><a href="#使用元类">使用元类</a><ul>
-<li><a href="#type函数">type函数</a></li>
-<li><a href="#什么是元类">什么是元类</a></li>
-<li><a href="#怎样使用元类">怎样使用元类</a></li>
-<li><a href="#编写orm框架">编写ORM框架</a></li>
-<li><a href="#小结-4">小结</a></li>
-</ul>
-</li>
-</ul>
-<!-- /MarkdownTOC -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/05/Python学习笔记-07面向对象高级编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1115,7 +1040,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
