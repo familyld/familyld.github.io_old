@@ -481,7 +481,6 @@ Mario.Character.prototype.Move = function() {
         this.Y += this.Ya;
     else if (this.PowerUpTime !== 0) { // 吃了蘑菇
         // alert('PowerUpTime>0:'+this.PowerUpTime);
-        this.JumpTime = 10,
         this.PowerUpTime > 0 ? (this.PowerUpTime--, this.Blink(((this.PowerUpTime / 3 | 0) & 1) === 0)) : (this.PowerUpTime++, this.Blink(((-this.PowerUpTime / 3 | 0) & 1) === 0));
         if (this.PowerUpTime === 0) this.World.Paused = !1;
         this.CalcPic()
@@ -500,7 +499,7 @@ Mario.Character.prototype.Move = function() {
             else if (this.OnGround && this.MayJump) Enjine.Resources.PlaySound("jump"),
             this.XJumpSpeed = 0,
             this.YJumpSpeed = -1.9,
-            this.JumpTime = love>0?10:7, // 默认7，控制跳跃的时长，获得love则变为10
+            this.JumpTime = 10,
             this.Ya = this.JumpTime * this.YJumpSpeed,
             this.Sliding = this.OnGround = !1;
         else if (this.Sliding && this.MayJump) Enjine.Resources.PlaySound("jump"),
